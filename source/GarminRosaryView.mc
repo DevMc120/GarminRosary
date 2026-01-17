@@ -73,6 +73,48 @@ class GarminRosaryView extends WatchUi.View {
             dc.setColor(COLOR_ARC_ACTIVE, Graphics.COLOR_TRANSPARENT);
             dc.drawArc(x, y, radius, Graphics.ARC_CLOCKWISE, 90, angle.toNumber());
         }
+        
+        // Ajout des séparateurs (fins de dizaines)
+        drawSeparators(dc, x, y, radius, penWidth);
+    }
+    
+    // Dessine des petites coupures dans l'arc pour marquer les étapes
+    private function drawSeparators(dc as Dc, cx as Number, cy as Number, radius as Number, arcWidth as Number) as Void {
+        dc.setColor(COLOR_BG, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(3); // Une coupure nette
+        
+        // Marqueurs aux grains clés (Fin Intro + Fins de dizaines)
+        // Intro: 7
+        // Dizaines: 19, 31, 43, 55
+        var markers = [7, 19, 31, 43, 55]; 
+        var total = 68.0; // Total grains
+        
+        for (var i = 0; i < markers.size(); i++) {
+             // 90 degrés = Haut (Midi). On tourne dans le sens horaire (décrémente)
+             var angleDeg = 90 - (markers[i] / total * 360);
+             drawRadialTick(dc, cx, cy, radius, arcWidth, angleDeg);
+        }
+    }
+
+    private function drawRadialTick(dc as Dc, cx as Number, cy as Number, radius as Number, width as Number, angleDeg as Float) as Void {
+        // Conversion Degrés -> Radians
+        var rad = angleDeg * Math.PI / 180.0;
+        
+        var cosA = Math.cos(rad);
+        // Note: L'axe Y écran est inversé par rapport au cercle trigonométrique classique
+        // Si 90 deg (Haut) => sin=1 => y doit être cy - r. Donc cy - sin. Correct.
+        var sinA = Math.sin(rad);
+
+        // On dessine un trait qui dépasse un peu de l'épaisseur de l'arc
+        var innerR = radius - (width / 2); 
+        var outerR = radius + (width / 2);
+
+        var x1 = cx + innerR * cosA;
+        var y1 = cy - innerR * sinA;
+        var x2 = cx + outerR * cosA;
+        var y2 = cy - outerR * sinA;
+        
+        dc.drawLine(x1, y1, x2, y2);
     }
 
     private function drawIntroScreen(dc as Dc, centerX as Number, centerY as Number) as Void {
