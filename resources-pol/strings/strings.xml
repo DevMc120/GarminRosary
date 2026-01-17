@@ -2,6 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Różaniec</string>
+    <string id="AppVersion">1.1.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Zrestartuj</string>
@@ -9,7 +10,8 @@
     <string id="menu_sorrowful">Tajemnice Bolesne</string>
     <string id="menu_glorious">Tajemnice Chwalebne</string>
     <string id="menu_luminous">Tajemnice Światła</string>
-    <string id="MysteryAuto">Tajemnica dnia</string>
+    <string id="menu_rosary">Różaniec (15 tajemnic)</string>
+    <string id="MysteryAuto">Tajemnica Dnia</string>
     
     <!-- Names of Mystery Types -->
     <string id="mystery_joyful">Radosne</string>
@@ -28,6 +30,7 @@
     <!-- UI Text -->
     <string id="text_amen">AMEN</string>
     <string id="text_finished">Różaniec Zakończony</string>
+    <string id="text_finished_rosary">Cały Różaniec Zakończony</string>
     <string id="text_intro">Wstęp</string>
 
     <!-- Joyful Mysteries -->
@@ -68,7 +71,7 @@
 
     <!-- Luminous Mysteries -->
     <string id="luminous_1_title">Chrzest w Jordanie</string>
-    <string id="luminous_1_fruit">Posłuszeństwo</string>
+    <string id="luminous_1_fruit">Otwartość na Ducha Świętego</string>
     <string id="luminous_2_title">Wesele w Kanie Galilejskiej</string>
     <string id="luminous_2_fruit">Zaufanie</string>
     <string id="luminous_3_title">Głoszenie Królestwa Bożego</string>

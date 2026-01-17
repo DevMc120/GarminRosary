@@ -18,6 +18,7 @@ class RosaryModel {
         STATE_OUR_FATHER,      // Notre Père (gros grain)
         STATE_HAIL_MARY,       // Ave Maria (petit grain)
         STATE_GLORY,           // Gloria (fin de dizaine)
+        STATE_MYSTERY_TRANSITION, // Écran de transition entre mystères (Full Rosary)
         STATE_SALVE,           // Salve Regina (fin)
         STATE_COMPLETE         // Chapelet terminé
     }
@@ -37,6 +38,9 @@ class RosaryModel {
     var mysteryType as Number = MYSTERY_JOYFUL;
     var isComplete as Boolean = false;
     var isManualMystery as Boolean = false; // "Vrai" si l'utilisateur a forcé un mystère
+    var isFullRosary as Boolean = false;    // "Vrai" si mode Rosaire complet (3 mystères)
+    var pendingMysteryTransition as Boolean = false; // "Vrai" si on attend l'écran de transition
+    var nextMysteryType as Number = MYSTERY_JOYFUL; // Le prochain mystère à afficher
 
     // Constantes
     const INTRO_BEADS = 6;          // Croix + Credo + NP + 3AM + Gloria
@@ -130,10 +134,13 @@ class RosaryModel {
                     }
                     return STATE_INTRO_HAIL_MARY;
                 case 7:
-                    // Gloria puis passage à la première dizaine
-                    phase = 1;
-                    beadInPhase = 0;
+                    // Gloria de l'intro : on reste en phase 0
                     return STATE_INTRO_GLORY;
+                case 8:
+                    // Passage à la première dizaine
+                    phase = 1;
+                    beadInPhase = 1;
+                    return STATE_OUR_FATHER;
             }
         }
 
@@ -146,15 +153,57 @@ class RosaryModel {
                 // Petits grains = Ave Maria (10)
                 return STATE_HAIL_MARY;
             } else if (beadInPhase == 12) {
-                // Gloria et passage à la dizaine suivante
+                // Gloria : FIN de la dizaine actuelle
+                return STATE_GLORY;
+                
+            } else if (beadInPhase > 12) {
+                // Passage à la dizaine suivante (ou fin)
                 phase++;
-                beadInPhase = 0;
+                beadInPhase = 1; // On repart au 1er grain (Notre Père)
                 
                 if (phase > 5) {
-                    // Fin des dizaines, passage au Salve Regina
-                    return STATE_GLORY;
+                    // Fin des 5 dizaines du mystère courant
+                    
+                    // GESTION DU ROSAIRE COMPLET (Enchaînement automatique)
+                    if (isFullRosary) {
+                        // Si on était en attente de transition, on passe au mystère suivant
+                        if (pendingMysteryTransition) {
+                            pendingMysteryTransition = false;
+                            mysteryType = nextMysteryType;
+                            phase = 1;
+                            beadInPhase = 1;
+                            // NE PAS incrémenter totalBeads - on l'a déjà fait pour le Gloria
+                            // Le prochain incrément sera pour le Notre Père
+                            totalBeads--; // Correction : on a compté 1 de trop en entrant dans transition
+                            return STATE_OUR_FATHER;
+                        }
+                        
+                        // Sinon, déterminer le prochain mystère et afficher l'écran de transition
+                        if (mysteryType == MYSTERY_JOYFUL) {
+                            nextMysteryType = MYSTERY_SORROWFUL;
+                            pendingMysteryTransition = true;
+                            phase = 5; // On reste en phase 5 pour l'écran transition
+                            beadInPhase = 13; // Marqueur spécial pour transition
+                            totalBeads--; // Correction : l'écran de transition n'est pas un grain
+                            return STATE_MYSTERY_TRANSITION;
+                            
+                        } else if (mysteryType == MYSTERY_SORROWFUL) {
+                            nextMysteryType = MYSTERY_GLORIOUS;
+                            pendingMysteryTransition = true;
+                            phase = 5;
+                            beadInPhase = 13;
+                            totalBeads--; // Correction : l'écran de transition n'est pas un grain
+                            return STATE_MYSTERY_TRANSITION;
+                        }
+                        // Si Glorieux -> Fin normale
+                    }
+                    
+                    // Fin standard
+                    phase = 6;
+                    isComplete = true;
+                    return STATE_COMPLETE;
                 }
-                return STATE_GLORY;
+                return STATE_OUR_FATHER;
             }
         }
 
@@ -174,13 +223,42 @@ class RosaryModel {
         }
         
         if (beadInPhase > 0) {
-            beadInPhase--;
+            
+            // GESTION DU RETOUR ENTRE MYSTÈRES (Full Rosary)
+            // Si on est au tout début d'un mystère (Phase 1, Grain 1)
+            // Et qu'on est en Joyeux, Lumineux ou Douloureux -> Retour au mystère d'avant
+            if (isFullRosary && phase == 1 && beadInPhase == 1) {
+                 if (mysteryType == MYSTERY_SORROWFUL) {
+                     mysteryType = MYSTERY_JOYFUL;
+                     phase = 5;
+                     beadInPhase = 12; // Retour à la fin des Joyeux (Gloria)
+                     return;
+                 } else if (mysteryType == MYSTERY_GLORIOUS) {
+                     mysteryType = MYSTERY_SORROWFUL;
+                     phase = 5;
+                     beadInPhase = 12; // Retour à la fin des Douloureux (Gloria)
+                     return;
+                 }
+            }
+
+            // Si on est au début d'une dizaine (grain 1), reculer nous renvoie à la phase d'avant
+            if (phase >= 1 && phase <= 5 && beadInPhase == 1) {
+                phase--;
+                if (phase == 0) {
+                    beadInPhase = 7; // Retour au Gloria de l'intro
+                } else {
+                    beadInPhase = 12; // Retour au Gloria de la dizaine précédente
+                }
+            } else {
+                beadInPhase--;
+            }
         } else if (phase > 0) {
+            // Cas de secours si beadInPhase == 0 (ne devrait pas arriver avec la nouvelle logique)
             phase--;
             if (phase == 0) {
-                beadInPhase = 6; // Retour à la fin de l'intro
+                beadInPhase = 7; 
             } else {
-                beadInPhase = 11; // Retour au dernier Ave Maria de la dizaine précédente
+                beadInPhase = 12;
             }
         }
         
@@ -263,7 +341,8 @@ class RosaryModel {
             if (beadInPhase == 2) { return STATE_CREED; }
             if (beadInPhase == 3) { return STATE_INTRO_OUR_FATHER; }
             if (beadInPhase >= 4 && beadInPhase <= 6) { return STATE_INTRO_HAIL_MARY; }
-            // Cas 7 géré par le passage à phase 1
+            if (beadInPhase == 7) { return STATE_INTRO_GLORY; }
+            // Cas 8 géré par le passage à phase 1
         }
 
         if (phase >= 1 && phase <= 5) {
@@ -294,7 +373,19 @@ class RosaryModel {
 
     //! Pourcentage de progression
     function getProgress() as Float {
-        return totalBeads.toFloat() / TOTAL_ROSARY_BEADS.toFloat();
+        // Ajustement pour le mode Rosaire Complet (15 dizaines)
+        var totalExpected = TOTAL_ROSARY_BEADS;
+        if (isFullRosary) {
+            // 7 intro + 5*12 (Joyeux) + 5*12 (Douloureux) + 5*12 (Glorieux) + 1 salve
+            // = 7 + 60 + 60 + 60 + 1 = 188 beads, mais on skip 2 intros.
+            // Réalité : 7 intro + 60 (5x12) + 5*12 + 5*12 = 7 + 180 = 187 sans salve.
+            // Plus simple : 3 * TOTAL_ROSARY_BEADS - overhead des 2 intros non refaites.
+            // Intro = 7 beads. On la fait 1 fois sur 3 mystères.
+            // Simplification : 3 mystères * 60 beads (5x12) + 1 intro (7) = 180 + 7 = 187.
+            // Formule exacte : 7 (intro) + 3 * (5 * 12) = 7 + 180 = 187.
+            totalExpected = 7 + (3 * 5 * 12); // = 187
+        }
+        return totalBeads.toFloat() / totalExpected.toFloat();
     }
 
     //! Réinitialise le chapelet
@@ -303,8 +394,15 @@ class RosaryModel {
         beadInPhase = 0;
         totalBeads = 0;
         isComplete = false;
+        pendingMysteryTransition = false; // Reset du flag de transition
+        
+        // CORRECTION AUDIT : En mode Rosaire Complet, un Reset doit remettre au DÉBUT (Joyeux)
+        // Sinon "Recommencer" au milieu des Douloureux nous laisse bloqué dans les Douloureux.
+        if (isFullRosary) {
+            mysteryType = MYSTERY_JOYFUL;
+        }
     }
-
+    
     //! Configure un mystère manuellement (mode temporaire)
     function setManualMystery(type as Number) as Void {
         mysteryType = type;
@@ -316,6 +414,15 @@ class RosaryModel {
     function setAutoMystery() as Void {
         mysteryType = getMysteryForToday();
         isManualMystery = false;
+        isFullRosary = false;
+        reset();
+    }
+    
+    //! Configure le mode Rosaire Complet (3 mystères)
+    function startFullRosary() as Void {
+        isFullRosary = true;
+        isManualMystery = true; // On considère que c'est un mode manuel
+        mysteryType = MYSTERY_JOYFUL; // On commence toujours par les Joyeux
         reset();
     }
     
@@ -332,6 +439,7 @@ class RosaryModel {
         storage.setValue("totalBeads", totalBeads);
         storage.setValue("mysteryType", mysteryType);
         storage.setValue("isManualMystery", isManualMystery);
+        storage.setValue("isFullRosary", isFullRosary);
         storage.setValue("isComplete", isComplete);
     }
 
@@ -350,6 +458,9 @@ class RosaryModel {
         
             var savedManual = storage.getValue("isManualMystery");
             if (savedManual != null) { isManualMystery = savedManual as Boolean; }
+
+            var savedFull = storage.getValue("isFullRosary");
+            if (savedFull != null) { isFullRosary = savedFull as Boolean; }
         
             var savedComplete = storage.getValue("isComplete");
             if (savedComplete != null) {

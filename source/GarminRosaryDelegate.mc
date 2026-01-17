@@ -134,6 +134,17 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
                     new Attention.VibeProfile(100, 500)
                 ];
                 break;
+            
+            // Vibration de transition entre mystères (Full Rosary)
+            case RosaryModel.STATE_MYSTERY_TRANSITION:
+                vibeData = [
+                    new Attention.VibeProfile(75, 300),
+                    new Attention.VibeProfile(0, 200),
+                    new Attention.VibeProfile(75, 300),
+                    new Attention.VibeProfile(0, 200),
+                    new Attention.VibeProfile(75, 300)
+                ];
+                break;
         }
 
         if (vibeData != null) {
@@ -146,10 +157,13 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         var title = WatchUi.loadResource(Rez.Strings.AppName) as String;
         var menu = new WatchUi.Menu2({:title=>title});
         
-        // Ajout de l'option Auto qui manquait
+        // Menu Items
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_restart) as String, null, "restart", null));
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.MysteryAuto) as String, null, "mystery_auto", null));
         
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_restart) as String, null, "restart", null));
+        // Nouvelle option : Rosaire Complet (3 mystères)
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_rosary) as String, null, "start_rosary", null));
+        
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_joyful) as String, null, "mystery_joyful", null));
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_sorrowful) as String, null, "mystery_sorrowful", null));
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_glorious) as String, null, "mystery_glorious", null));

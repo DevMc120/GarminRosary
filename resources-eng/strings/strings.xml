@@ -2,6 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosary</string>
+    <string id="AppVersion">1.1.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Restart</string>
@@ -9,6 +10,7 @@
     <string id="menu_sorrowful">Sorrowful Mysteries</string>
     <string id="menu_glorious">Glorious Mysteries</string>
     <string id="menu_luminous">Luminous Mysteries</string>
+    <string id="menu_rosary">Rosary (15 decades)</string>
     <string id="MysteryAuto">Mystery of the Day</string>
     
     <!-- Names of Mystery Types -->
@@ -28,6 +30,7 @@
     <!-- UI Text -->
     <string id="text_amen">AMEN</string>
     <string id="text_finished">Rosary Complete</string>
+    <string id="text_finished_rosary">Full Rosary Complete</string>
     <string id="text_intro">Intro</string>
 
     <!-- Joyful Mysteries -->

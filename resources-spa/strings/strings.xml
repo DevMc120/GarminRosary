@@ -2,13 +2,15 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosario</string>
+    <string id="AppVersion">1.1.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Reiniciar</string>
     <string id="menu_joyful">Misterios Gozosos</string>
     <string id="menu_sorrowful">Misterios Dolorosos</string>
     <string id="menu_glorious">Misterios Gloriosos</string>
-    <string id="menu_luminous">Misterios Luminosos</string>
+    <string id="menu_luminous">Mist. Luminosos</string>
+    <string id="menu_rosary">Rosario (15 misterios)</string>
     <string id="MysteryAuto">Misterio del día</string>
     
     <!-- Names of Mystery Types -->
@@ -28,6 +30,7 @@
     <!-- UI Text -->
     <string id="text_amen">AMÉN</string>
     <string id="text_finished">Rosario Terminado</string>
+    <string id="text_finished_rosary">Rosario Completo</string>
     <string id="text_intro">Intro</string>
 
     <!-- Joyful Mysteries -->
@@ -49,7 +52,7 @@
     <string id="sorrowful_2_fruit">Pureza</string>
     <string id="sorrowful_3_title">La Coronación de Espinas</string>
     <string id="sorrowful_3_fruit">Valor Moral</string>
-    <string id="sorrowful_4_title">Jesús con la Cruz</string>
+    <string id="sorrowful_4_title">El Camino al Calvario</string>
     <string id="sorrowful_4_fruit">Paciencia</string>
     <string id="sorrowful_5_title">La Crucifixión</string>
     <string id="sorrowful_5_fruit">Perseverancia</string>

@@ -1,6 +1,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Chapelet</string>
+    <string id="AppVersion">1.1.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Recommencer</string>
@@ -8,6 +9,7 @@
     <string id="menu_sorrowful">Mystères Douloureux</string>
     <string id="menu_glorious">Mystères Glorieux</string>
     <string id="menu_luminous">Mystères Lumineux</string>
+    <string id="menu_rosary">Rosaire (15 dizaines)</string>
     <string id="MysteryAuto">Mystère du jour</string>
     
     <!-- Names of Mystery Types -->
@@ -27,6 +29,7 @@
     <!-- UI Text -->
     <string id="text_amen">AMEN</string>
     <string id="text_finished">Chapelet terminé</string>
+    <string id="text_finished_rosary">Rosaire terminé</string>
     <string id="text_intro">Intro</string>
 
     <!-- Joyful Mysteries -->

@@ -19,8 +19,10 @@ class GarminRosaryMenuDelegate extends WatchUi.Menu2InputDelegate {
             var idStr = id.toString();
             
             if (idStr.equals("restart")) {
-                _model.fullReset(); // Reset Intelligent (retour auto)
+                _model.reset(); // Reset simple (garde le mystère sélectionné)
                 _model.clearSavedState();
+            } else if (idStr.equals("start_rosary")) {
+                _model.startFullRosary();
             } else if (idStr.equals("mystery_auto")) {
                 _model.setAutoMystery();
             } else if (idStr.equals("mystery_joyful")) {

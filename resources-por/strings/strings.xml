@@ -2,6 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosário</string>
+    <string id="AppVersion">1.1.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Reiniciar</string>
@@ -9,6 +10,7 @@
     <string id="menu_sorrowful">Mistérios Dolorosos</string>
     <string id="menu_glorious">Mistérios Gloriosos</string>
     <string id="menu_luminous">Mistérios Luminosos</string>
+    <string id="menu_rosary">Rosário (15 mistérios)</string>
     <string id="MysteryAuto">Mistério do dia</string>
     
     <!-- Names of Mystery Types -->
@@ -28,6 +30,7 @@
     <!-- UI Text -->
     <string id="text_amen">AMÉM</string>
     <string id="text_finished">Rosário Completo</string>
+    <string id="text_finished_rosary">Rosário Inteiro Completo</string>
     <string id="text_intro">Intro</string>
 
     <!-- Joyful Mysteries -->
@@ -59,7 +62,7 @@
     <string id="glorious_1_fruit">Fé</string>
     <string id="glorious_2_title">A Ascensão</string>
     <string id="glorious_2_fruit">Esperança</string>
-    <string id="glorious_3_title">A descida do Espírito Santo</string>
+    <string id="glorious_3_title">A Descida do Espírito Santo</string>
     <string id="glorious_3_fruit">Amor a Deus</string>
     <string id="glorious_4_title">A Assunção</string>
     <string id="glorious_4_fruit">Graça da Boa Morte</string>
