@@ -195,7 +195,9 @@ class RosaryModel {
             if (phase >= 1 && phase <= 5) {
                 return WatchUi.loadResource(titles[phase - 1]) as String;
             } else if (phase == 6) {
-                return WatchUi.loadResource(Rez.Strings.text_finished) as String;
+                // Pour la phase finale (Salve/Gloire), on affiche le nom global du mystère (ex: "Mystères Joyeux")
+                // au lieu de "Chapelet terminé" qui est réservé à l'écran de fin.
+                return getMysteryTypeName();
             }
         }
         return "";
@@ -275,7 +277,8 @@ class RosaryModel {
         }
 
         if (phase == 6) {
-            return STATE_COMPLETE;
+            // Phase 6 non terminée = Le Gloria final avant la fin
+            return STATE_GLORY;
         }
 
         return STATE_CROSS;
@@ -351,6 +354,9 @@ class RosaryModel {
             var savedComplete = storage.getValue("isComplete");
             if (savedComplete != null) {
                 isComplete = savedComplete as Boolean;
+            }
+            if (!isManualMystery && phase == 0) {
+                mysteryType = getMysteryForToday();
             }
         }
     }

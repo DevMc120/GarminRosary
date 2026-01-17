@@ -16,6 +16,7 @@ class GarminRosaryView extends WatchUi.View {
     private const COLOR_TEXT_DIM = 0xA0A0A0;    // Gris clair pour le secondaire
     private const COLOR_ARC_BG = 0x111111;      // Gris très foncé (presque noir) pour fond d'arc discret
     private const COLOR_ARC_ACTIVE = 0x66CCFF;  // Bleu Céleste pour la progression
+    private const COLOR_OFF_WHITE = 0xDDDDDD;   // Blanc cassé (plus doux que le blanc pur)
 
     function initialize(model as RosaryModel) {
         View.initialize();
@@ -77,7 +78,7 @@ class GarminRosaryView extends WatchUi.View {
     private function drawIntroScreen(dc as Dc, centerX as Number, centerY as Number) as Void {
         // Titre du Mystère
         dc.setColor(COLOR_GOLD, Graphics.COLOR_TRANSPARENT);
-        drawWrappedText(dc, centerX, (centerY * 0.45).toNumber(), Graphics.FONT_XTINY, 
+        drawWrappedText(dc, centerX, (centerY * 0.45).toNumber(), Graphics.FONT_TINY, 
             _model.getMysteryTypeName(), 
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
@@ -119,15 +120,39 @@ class GarminRosaryView extends WatchUi.View {
             headerText = _model.getCurrentDecade() + " - " + mysteryTitle;
         }
         
-        drawWrappedText(dc, centerX, (centerY * 0.28).toNumber(), Graphics.FONT_XTINY, 
+        var titleY = (centerY * 0.28).toNumber();
+        
+        // Si phase 6 (Transition finale), on aligne le titre comme l'écran d'intro (plus bas)
+        // pour éviter le chevauchement avec l'arc et garder la symétrie.
+        if (_model.phase == 6) {
+            titleY = (centerY * 0.45).toNumber();
+        }
+
+        var titleHeight = drawWrappedText(dc, centerX, titleY, Graphics.FONT_TINY, 
             headerText, 
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // Fruit du Mystère (Juste en dessous, Gris pour affiner, et plus espacé)
+        //  Fruit du Mystère (XTINY pour hiérarchie et gain de place)
         var fruit = _model.getCurrentFruit();
         if (fruit.length() > 0) {
-            dc.setColor(COLOR_TEXT_DIM, Graphics.COLOR_TRANSPARENT); 
-            drawWrappedText(dc, centerX, (centerY * 0.48).toNumber(), Graphics.FONT_XTINY, 
+            dc.setColor(COLOR_OFF_WHITE, Graphics.COLOR_TRANSPARENT); 
+            
+            // Calcul dynamique de la position Y
+            var fontHeight = dc.getFontHeight(Graphics.FONT_XTINY);
+            var titleBottom = titleY + (titleHeight / 2);
+            
+            // On descend un peu le default (0.58 au lieu de 0.48) pour respirer
+            var defaultFruitY = (centerY * 0.58).toNumber(); 
+            var minFruitTop = titleBottom + 4; // Padding 4px
+            
+            var fruitY = defaultFruitY;
+            
+            // Si le fruit par défaut est trop haut et va toucher le titre
+            if ((fruitY - (fontHeight / 2)) < minFruitTop) {
+                 fruitY = minFruitTop + (fontHeight / 2);
+            }
+            
+            drawWrappedText(dc, centerX, fruitY, Graphics.FONT_XTINY, 
                 fruit, 
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
@@ -138,7 +163,7 @@ class GarminRosaryView extends WatchUi.View {
         if (beadNum > 0) {
             // Chiffre SEUL (sans fond rond moche)
             dc.setColor(COLOR_TEXT_MAIN, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(centerX, centerY, Graphics.FONT_NUMBER_THAI_HOT, 
+            dc.drawText(centerX, centerY, Graphics.FONT_NUMBER_HOT, 
                 beadNum.toString(), 
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             
@@ -195,16 +220,18 @@ class GarminRosaryView extends WatchUi.View {
         // AMEN remonté
         dc.setColor(COLOR_GOLD, Graphics.COLOR_TRANSPARENT);
         var amenText = WatchUi.loadResource(Rez.Strings.text_amen) as String;
-        dc.drawText(centerX, centerY * 0.6, Graphics.FONT_SYSTEM_LARGE, 
+        dc.drawText(centerX, centerY * 0.45, Graphics.FONT_SYSTEM_LARGE, 
             amenText, 
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // "Chapelet terminé" sous le AMEN
+        // "Chapelet terminé" sous le AMEN (remplace le ghost Gloire au Père)
         dc.setColor(COLOR_TEXT_MAIN, Graphics.COLOR_TRANSPARENT);
         var finishedText = WatchUi.loadResource(Rez.Strings.text_finished) as String;
-        dc.drawText(centerX, centerY * 1.0, Graphics.FONT_SYSTEM_SMALL, 
+        
+        // On le descend à 0.85 pour qu'il soit bien sous le AMEN et loin de l'arc du haut
+        drawWrappedText(dc, centerX, (centerY * 0.85).toNumber(), Graphics.FONT_SYSTEM_SMALL, 
             finishedText, 
-            Graphics.TEXT_JUSTIFY_CENTER);
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             
         // Croix plus bas 
         drawVectorCross(dc, centerX, (centerY * 1.55).toNumber());
@@ -235,14 +262,31 @@ class GarminRosaryView extends WatchUi.View {
     }
 
     // Helper pour dessiner du texte sur plusieurs lignes si trop long
-    private function drawWrappedText(dc as Dc, x as Number, y as Number, font as FontType, text as String, attr as Number) as Void {
+    // Retourne la hauteur totale en pixels
+    private function drawWrappedText(dc as Dc, x as Number, y as Number, font as FontType, text as String, attr as Number) as Number {
         var width = dc.getWidth();
-        var maxWidth = width * 0.85; // Marge de sécurité (85% de la largeur)
+        var height = dc.getHeight();
+        var radius = width / 2;
+        
+        // Calcul géométrique de la largeur disponible à cette hauteur Y (corde du cercle)
+        // dy est la distance verticale par rapport au centre
+        var dy = (y - (height / 2)).abs();
+        var availableWidth = width;
+        
+        if (dy < radius) {
+            // Pythagore dans le cercle : r² = x² + y²  => x = sqrt(r² - y²)
+            // La corde (largeur dispo) est 2*x
+            var halfChord = Math.sqrt(Math.pow(radius, 2) - Math.pow(dy, 2));
+            availableWidth = 2 * halfChord;
+        }
+        
+        // On prend 90% de la Corde (largeur réelle à cette hauteur) pour ne pas toucher les bords ronds
+        var maxWidth = availableWidth * 0.90; 
         
         // Si le texte tient, on l'affiche direct
         if (dc.getTextWidthInPixels(text, font) <= maxWidth) {
             dc.drawText(x, y, font, text, attr);
-            return;
+            return dc.getFontHeight(font);
         }
 
         // Sinon on découpe
@@ -275,6 +319,8 @@ class GarminRosaryView extends WatchUi.View {
         for (var i = 0; i < lines.size(); i++) {
             dc.drawText(x, startY + (i * fontHeight), font, lines[i], attr);
         }
+        
+        return totalHeight;
     }
 
     // Petit helper maison pour split car Toybox.String ne l'a pas forcément en simple
