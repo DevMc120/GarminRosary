@@ -1,0 +1,8 @@
+<menu id="MainMenu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <menu-item id="mystery_auto" label="@Strings.MysteryAuto" />
+    <menu-item id="restart" label="@Strings.menu_restart" />
+    <menu-item id="mystery_joyful" label="@Strings.menu_joyful" />
+    <menu-item id="mystery_sorrowful" label="@Strings.menu_sorrowful" />
+    <menu-item id="mystery_glorious" label="@Strings.menu_glorious" />
+    <menu-item id="mystery_luminous" label="@Strings.menu_luminous" />
+</menu>

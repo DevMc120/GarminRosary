@@ -1,0 +1,38 @@
+# ============================================
+# GarminRosary - Garmin Connect IQ App
+# ============================================
+
+# Build outputs (IMPORTANT: contains local paths in debug files)
+bin/
+*.prg
+
+# Monkey C SDK generated files
+*.mbc
+*.mir
+gen/
+mir/
+
+# IDE / Editor
+.vscode/
+*.code-workspace
+
+# Package (optional - uncomment to exclude the final .iq package)
+# *.iq
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Logs
+*.log

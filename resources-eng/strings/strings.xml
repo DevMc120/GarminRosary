@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <!-- App -->
+    <string id="AppName">Rosary</string>
+
+    <!-- Menu -->
+    <string id="menu_restart">Restart</string>
+    <string id="menu_joyful">Joyful Mysteries</string>
+    <string id="menu_sorrowful">Sorrowful Mysteries</string>
+    <string id="menu_glorious">Glorious Mysteries</string>
+    <string id="menu_luminous">Luminous Mysteries</string>
+    <string id="MysteryAuto">Mystery of the Day</string>
+    
+    <!-- Names of Mystery Types -->
+    <string id="mystery_joyful">Joyful</string>
+    <string id="mystery_sorrowful">Sorrowful</string>
+    <string id="mystery_glorious">Glorious</string>
+    <string id="mystery_luminous">Luminous</string>
+
+    <!-- Prayers -->
+    <string id="prayer_cross">Sign of the Cross</string>
+    <string id="prayer_creed">Apostles' Creed</string>
+    <string id="prayer_pater">Our Father</string>
+    <string id="prayer_ave">Hail Mary</string>
+    <string id="prayer_gloria">Glory Be</string>
+    <string id="prayer_salve">Hail, Holy Queen</string>
+
+    <!-- UI Text -->
+    <string id="text_amen">AMEN</string>
+    <string id="text_finished">Rosary Complete</string>
+    <string id="text_intro">Intro</string>
+
+    <!-- Joyful Mysteries -->
+    <string id="joyful_1_title">The Annunciation</string>
+    <string id="joyful_1_fruit">Humility</string>
+    <string id="joyful_2_title">The Visitation</string>
+    <string id="joyful_2_fruit">Love of Neighbor</string>
+    <string id="joyful_3_title">The Nativity</string>
+    <string id="joyful_3_fruit">Poverty of Spirit</string>
+    <string id="joyful_4_title">The Presentation</string>
+    <string id="joyful_4_fruit">Obedience</string>
+    <string id="joyful_5_title">Finding in the Temple</string>
+    <string id="joyful_5_fruit">Joy</string>
+
+    <!-- Sorrowful Mysteries -->
+    <string id="sorrowful_1_title">The Agony in the Garden</string>
+    <string id="sorrowful_1_fruit">Sorrow for Sin</string>
+    <string id="sorrowful_2_title">The Scourging</string>
+    <string id="sorrowful_2_fruit">Purity</string>
+    <string id="sorrowful_3_title">Crowning with Thorns</string>
+    <string id="sorrowful_3_fruit">Courage</string>
+    <string id="sorrowful_4_title">Carrying of the Cross</string>
+    <string id="sorrowful_4_fruit">Patience</string>
+    <string id="sorrowful_5_title">The Crucifixion</string>
+    <string id="sorrowful_5_fruit">Perseverance</string>
+
+    <!-- Glorious Mysteries -->
+    <string id="glorious_1_title">The Resurrection</string>
+    <string id="glorious_1_fruit">Faith</string>
+    <string id="glorious_2_title">The Ascension</string>
+    <string id="glorious_2_fruit">Hope</string>
+    <string id="glorious_3_title">Descent of Holy Spirit</string>
+    <string id="glorious_3_fruit">Love of God</string>
+    <string id="glorious_4_title">The Assumption</string>
+    <string id="glorious_4_fruit">Grace of a Happy Death</string>
+    <string id="glorious_5_title">Crowning of Mary</string>
+    <string id="glorious_5_fruit">Trust in Mary</string>
+
+    <!-- Luminous Mysteries -->
+    <string id="luminous_1_title">The Baptism</string>
+    <string id="luminous_1_fruit">Openness to Spirit</string>
+    <string id="luminous_2_title">Wedding at Cana</string>
+    <string id="luminous_2_fruit">To Jesus through Mary</string>
+    <string id="luminous_3_title">Proclamation of Kingdom</string>
+    <string id="luminous_3_fruit">Repentance</string>
+    <string id="luminous_4_title">The Transfiguration</string>
+    <string id="luminous_4_fruit">Desire for Holiness</string>
+    <string id="luminous_5_title">Institution of Eucharist</string>
+    <string id="luminous_5_fruit">Adoration</string>
+</strings>

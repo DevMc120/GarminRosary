@@ -1,0 +1,62 @@
+{
+    "mysteryTitles": {
+        "joyful": [
+            "The Annunciation",
+            "The Visitation",
+            "The Nativity",
+            "The Presentation",
+            "The Finding in the Temple"
+        ],
+        "sorrowful": [
+            "The Agony in the Garden",
+            "The Scourging at the Pillar",
+            "The Crowning with Thorns",
+            "The Carrying of the Cross",
+            "The Crucifixion"
+        ],
+        "glorious": [
+            "The Resurrection",
+            "The Ascension",
+            "The Descent of the Holy Spirit",
+            "The Assumption",
+            "The Coronation"
+        ],
+        "luminous": [
+            "The Baptism in the Jordan",
+            "The Wedding at Cana",
+            "The Proclamation of the Kingdom",
+            "The Transfiguration",
+            "The Institution of the Eucharist"
+        ]
+    },
+    "mysteryFruits": {
+        "joyful": [
+            "Humility",
+            "Love of Neighbor",
+            "Poverty of Spirit",
+            "Obedience",
+            "Joy in Finding Jesus"
+        ],
+        "sorrowful": [
+            "Sorrow for Sin",
+            "Purity",
+            "Moral Courage",
+            "Patience",
+            "Perseverance"
+        ],
+        "glorious": [
+            "Faith",
+            "Hope",
+            "Love of God",
+            "Grace of a Happy Death",
+            "Trust in Mary's Intercession"
+        ],
+        "luminous": [
+            "Openness to the Holy Spirit",
+            "To Jesus through Mary",
+            "Repentance and Trust in God",
+            "Desire for Holiness",
+            "Adoration"
+        ]
+    }
+}
