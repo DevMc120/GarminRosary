@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosenkranz</string>
-    <string id="AppVersion">1.1.0</string>
+    <string id="AppVersion">1.1.1</string>
 
     <!-- Menu -->
     <string id="menu_restart">Neustart</string>
@@ -43,41 +43,41 @@
     <string id="joyful_4_title">Die Darstellung im Tempel</string>
     <string id="joyful_4_fruit">Gehorsam</string>
     <string id="joyful_5_title">Das Wiederfinden im Tempel</string>
-    <string id="joyful_5_fruit">Freude an Gott</string>
+    <string id="joyful_5_fruit">Suche nach Gott</string>
 
     <!-- Sorrowful Mysteries -->
     <string id="sorrowful_1_title">Die Todesangst</string>
     <string id="sorrowful_1_fruit">Reue</string>
     <string id="sorrowful_2_title">Die Geißelung</string>
-    <string id="sorrowful_2_fruit">Reinheit</string>
+    <string id="sorrowful_2_fruit">Abtötung der Sinne</string>
     <string id="sorrowful_3_title">Die Dornenkrönung</string>
-    <string id="sorrowful_3_fruit">Mut</string>
+    <string id="sorrowful_3_fruit">Abtötung des Geistes</string>
     <string id="sorrowful_4_title">Die Kreuztragung</string>
     <string id="sorrowful_4_fruit">Geduld</string>
     <string id="sorrowful_5_title">Die Kreuzigung</string>
-    <string id="sorrowful_5_fruit">Beharrlichkeit</string>
+    <string id="sorrowful_5_fruit">Liebe zu Gott</string>
 
     <!-- Glorious Mysteries -->
     <string id="glorious_1_title">Die Auferstehung</string>
     <string id="glorious_1_fruit">Glaube</string>
     <string id="glorious_2_title">Die Himmelfahrt</string>
     <string id="glorious_2_fruit">Hoffnung</string>
-    <string id="glorious_3_title">Pfingsten</string>
+    <string id="glorious_3_title">Sendung des Geistes</string>
     <string id="glorious_3_fruit">Liebe zu Gott</string>
-    <string id="glorious_4_title">Die Aufnahme Mariens</string>
+    <string id="glorious_4_title">Mariä Himmelfahrt</string>
     <string id="glorious_4_fruit">Gnade eines guten Todes</string>
     <string id="glorious_5_title">Die Krönung Mariens</string>
-    <string id="glorious_5_fruit">Vertrauen auf Maria</string>
+    <string id="glorious_5_fruit">Marienverehrung</string>
 
     <!-- Luminous Mysteries -->
     <string id="luminous_1_title">Die Taufe im Jordan</string>
-    <string id="luminous_1_fruit">Offenheit für den Hl. Geist</string>
+    <string id="luminous_1_fruit">Treue zum Taufbund</string>
     <string id="luminous_2_title">Die Hochzeit zu Kana</string>
     <string id="luminous_2_fruit">Vertrauen</string>
-    <string id="luminous_3_title">Die Verkündigung des Reiches Gottes</string>
+    <string id="luminous_3_title">Verkündigung des Reiches</string>
     <string id="luminous_3_fruit">Bekehrung</string>
     <string id="luminous_4_title">Die Verklärung</string>
-    <string id="luminous_4_fruit">Begierde nach Heiligkeit</string>
-    <string id="luminous_5_title">Die Einsetzung der Eucharistie</string>
+    <string id="luminous_4_fruit">Sehnsucht nach Heiligkeit</string>
+    <string id="luminous_5_title">Einsetzung der Eucharistie</string>
     <string id="luminous_5_fruit">Anbetung</string>
 </strings>

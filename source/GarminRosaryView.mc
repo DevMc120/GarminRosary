@@ -212,16 +212,24 @@ class GarminRosaryView extends WatchUi.View {
             // Mode "Dizaine" : Nombre au-dessus, Titre en-dessous
             var decadeNum = _model.getCurrentDecade();
             
-            // 1. Le Numéro (Petit, Doré, tout en haut)
+            // Calculer si le titre va tenir sur 1 ou 2 lignes
+            var titleFont = Graphics.FONT_TINY;
+            var maxWidth = (centerX * 1.6).toNumber(); // Largeur max pour le texte
+            var textWidth = dc.getTextWidthInPixels(mysteryTitle, titleFont);
+            var willWrap = textWidth > maxWidth;
+            
+            // Position du numéro : plus bas si le titre est court (1 ligne)
+            var numY = willWrap ? (centerY * 0.18).toNumber() : (centerY * 0.28).toNumber();
+            
+            // 1. Le Numéro (Petit, Doré)
             dc.setColor(COLOR_GOLD, Graphics.COLOR_TRANSPARENT);
-            var numY = (centerY * 0.20).toNumber();
             dc.drawText(centerX, numY, Graphics.FONT_SYSTEM_SMALL, 
                 decadeNum.toString(), 
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
                 
-            // 2. Le Titre (Juste en dessous)
-            titleY = (centerY * 0.50).toNumber();
-            titleHeight = drawWrappedText(dc, centerX, titleY, Graphics.FONT_TINY, 
+            // 2. Le Titre (Position ajustée selon longueur)
+            titleY = willWrap ? (centerY * 0.48).toNumber() : (centerY * 0.52).toNumber();
+            titleHeight = drawWrappedText(dc, centerX, titleY, titleFont, 
                 mysteryTitle, 
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }

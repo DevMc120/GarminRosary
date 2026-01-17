@@ -407,6 +407,7 @@ class RosaryModel {
     function setManualMystery(type as Number) as Void {
         mysteryType = type;
         isManualMystery = true;
+        isFullRosary = false; // IMPORTANT: Désactive le mode Rosaire si on choisit un mystère spécifique
         reset();
     }
 
@@ -441,6 +442,9 @@ class RosaryModel {
         storage.setValue("isManualMystery", isManualMystery);
         storage.setValue("isFullRosary", isFullRosary);
         storage.setValue("isComplete", isComplete);
+        // Sauvegarde des flags de transition (robustesse si fermeture pendant écran transition)
+        storage.setValue("pendingMysteryTransition", pendingMysteryTransition);
+        storage.setValue("nextMysteryType", nextMysteryType);
     }
 
     //! Restaure l'état depuis le storage
@@ -466,6 +470,14 @@ class RosaryModel {
             if (savedComplete != null) {
                 isComplete = savedComplete as Boolean;
             }
+            
+            // Restauration des flags de transition
+            var savedPending = storage.getValue("pendingMysteryTransition");
+            if (savedPending != null) { pendingMysteryTransition = savedPending as Boolean; }
+            
+            var savedNextMystery = storage.getValue("nextMysteryType");
+            if (savedNextMystery != null) { nextMysteryType = savedNextMystery as Number; }
+            
             if (!isManualMystery && phase == 0) {
                 mysteryType = getMysteryForToday();
             }

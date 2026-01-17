@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Różaniec</string>
-    <string id="AppVersion">1.1.0</string>
+    <string id="AppVersion">1.1.1</string>
 
     <!-- Menu -->
     <string id="menu_restart">Zrestartuj</string>
@@ -25,7 +25,7 @@
     <string id="prayer_pater">Ojcze Nasz</string>
     <string id="prayer_ave">Zdrowaś Maryjo</string>
     <string id="prayer_gloria">Chwała Ojcu</string>
-    <string id="prayer_salve">Pod Twoją Obronę</string>
+    <string id="prayer_salve">Witaj Królowo</string>
 
     <!-- UI Text -->
     <string id="text_amen">AMEN</string>
@@ -36,26 +36,26 @@
     <!-- Joyful Mysteries -->
     <string id="joyful_1_title">Zwiastowanie NMP</string>
     <string id="joyful_1_fruit">Pokora</string>
-    <string id="joyful_2_title">Nawiedzenie Św. Elżbiety</string>
+    <string id="joyful_2_title">Nawiedzenie NMP</string>
     <string id="joyful_2_fruit">Miłość bliźniego</string>
     <string id="joyful_3_title">Narodzenie Pana Jezusa</string>
     <string id="joyful_3_fruit">Ubóstwo</string>
     <string id="joyful_4_title">Ofiarowanie Pana Jezusa</string>
     <string id="joyful_4_fruit">Posłuszeństwo</string>
     <string id="joyful_5_title">Odnalezienie Pana Jezusa</string>
-    <string id="joyful_5_fruit">Radość</string>
+    <string id="joyful_5_fruit">Szukanie Boga</string>
 
     <!-- Sorrowful Mysteries -->
     <string id="sorrowful_1_title">Modlitwa w Ogrójcu</string>
     <string id="sorrowful_1_fruit">Żal za grzechy</string>
     <string id="sorrowful_2_title">Biczowanie Pana Jezusa</string>
-    <string id="sorrowful_2_fruit">Czystość</string>
+    <string id="sorrowful_2_fruit">Umartwienie zmysłów</string>
     <string id="sorrowful_3_title">Cierniem ukoronowanie</string>
-    <string id="sorrowful_3_fruit">Odwaga cywilna</string>
+    <string id="sorrowful_3_fruit">Umartwienie ducha</string>
     <string id="sorrowful_4_title">Dźwiganie Krzyża</string>
     <string id="sorrowful_4_fruit">Cierpliwość</string>
     <string id="sorrowful_5_title">Ukrzyżowanie Pana Jezusa</string>
-    <string id="sorrowful_5_fruit">Pragnienie Zbawienia</string>
+    <string id="sorrowful_5_fruit">Miłość do Boga</string>
 
     <!-- Glorious Mysteries -->
     <string id="glorious_1_title">Zmartwychwstanie</string>
@@ -67,17 +67,17 @@
     <string id="glorious_4_title">Wniebowzięcie NMP</string>
     <string id="glorious_4_fruit">Szczęśliwa śmierć</string>
     <string id="glorious_5_title">Ukoronowanie NMP</string>
-    <string id="glorious_5_fruit">Ufność Maryi</string>
+    <string id="glorious_5_fruit">Ufność w Maryi</string>
 
     <!-- Luminous Mysteries -->
     <string id="luminous_1_title">Chrzest w Jordanie</string>
-    <string id="luminous_1_fruit">Otwartość na Ducha Świętego</string>
+    <string id="luminous_1_fruit">Wierność przyrzeczeniom</string>
     <string id="luminous_2_title">Wesele w Kanie Galilejskiej</string>
     <string id="luminous_2_fruit">Zaufanie</string>
     <string id="luminous_3_title">Głoszenie Królestwa Bożego</string>
     <string id="luminous_3_fruit">Nawrócenie</string>
     <string id="luminous_4_title">Przemienienie na górze Tabor</string>
-    <string id="luminous_4_fruit">Wytrwałość</string>
+    <string id="luminous_4_fruit">Pragnienie świętości</string>
     <string id="luminous_5_title">Ustanowienie Eucharystii</string>
     <string id="luminous_5_fruit">Miłość eucharystyczna</string>
 </strings>

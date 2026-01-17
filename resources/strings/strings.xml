@@ -1,7 +1,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Chapelet</string>
-    <string id="AppVersion">1.1.0</string>
+    <string id="AppVersion">1.1.1</string>
 
     <!-- Menu -->
     <string id="menu_restart">Recommencer</string>
@@ -36,25 +36,25 @@
     <string id="joyful_1_title">L'Annonciation</string>
     <string id="joyful_1_fruit">Humilité</string>
     <string id="joyful_2_title">La Visitation</string>
-    <string id="joyful_2_fruit">Charité</string>
+    <string id="joyful_2_fruit">Charité fraternelle</string>
     <string id="joyful_3_title">La Nativité</string>
     <string id="joyful_3_fruit">Pauvreté</string>
     <string id="joyful_4_title">La Présentation</string>
     <string id="joyful_4_fruit">Obéissance</string>
     <string id="joyful_5_title">Le Recouvrement</string>
-    <string id="joyful_5_fruit">Ferveur</string>
+    <string id="joyful_5_fruit">Recherche de Dieu</string>
 
     <!-- Sorrowful Mysteries -->
     <string id="sorrowful_1_title">L'Agonie</string>
     <string id="sorrowful_1_fruit">Contrition</string>
     <string id="sorrowful_2_title">La Flagellation</string>
-    <string id="sorrowful_2_fruit">Mortification</string>
+    <string id="sorrowful_2_fruit">Mortification des sens</string>
     <string id="sorrowful_3_title">Le Couronnement</string>
-    <string id="sorrowful_3_fruit">Courage</string>
+    <string id="sorrowful_3_fruit">Mortification de l'esprit</string>
     <string id="sorrowful_4_title">Le Portement</string>
-    <string id="sorrowful_4_fruit">Patience</string>
+    <string id="sorrowful_4_fruit">Persévérance dans l'épreuve</string>
     <string id="sorrowful_5_title">La Crucifixion</string>
-    <string id="sorrowful_5_fruit">Don de soi</string>
+    <string id="sorrowful_5_fruit">Amour de Dieu</string>
 
     <!-- Glorious Mysteries -->
     <string id="glorious_1_title">La Résurrection</string>
@@ -62,21 +62,21 @@
     <string id="glorious_2_title">L'Ascension</string>
     <string id="glorious_2_fruit">Espérance</string>
     <string id="glorious_3_title">La Pentecôte</string>
-    <string id="glorious_3_fruit">Charité</string>
+    <string id="glorious_3_fruit">Charité et zèle</string>
     <string id="glorious_4_title">L'Assomption</string>
-    <string id="glorious_4_fruit">Union à Dieu</string>
+    <string id="glorious_4_fruit">Grâce d'une bonne mort</string>
     <string id="glorious_5_title">Le Couronnement de Marie</string>
     <string id="glorious_5_fruit">Confiance en Marie</string>
 
     <!-- Luminous Mysteries -->
     <string id="luminous_1_title">Le Baptême</string>
-    <string id="luminous_1_fruit">Fidélité</string>
+    <string id="luminous_1_fruit">Fidélité au Baptême</string>
     <string id="luminous_2_title">Les Noces de Cana</string>
     <string id="luminous_2_fruit">Confiance</string>
     <string id="luminous_3_title">L'Annonce du Royaume</string>
     <string id="luminous_3_fruit">Conversion</string>
     <string id="luminous_4_title">La Transfiguration</string>
-    <string id="luminous_4_fruit">Grâce</string>
+    <string id="luminous_4_fruit">Désir de sainteté</string>
     <string id="luminous_5_title">L'Eucharistie</string>
-    <string id="luminous_5_fruit">Adoration</string>
+    <string id="luminous_5_fruit">Amour de l'Eucharistie</string>
 </strings>
