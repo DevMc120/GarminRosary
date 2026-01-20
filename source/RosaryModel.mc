@@ -217,17 +217,17 @@ class RosaryModel {
     }
 
     //! Recule d'un grain
+    //! Recule d'un grain
     function previous() as Void {
         if (totalBeads > 0) {
             totalBeads--;
         }
         
-        if (beadInPhase > 0) {
-            
-            // GESTION DU RETOUR ENTRE MYSTÈRES (Full Rosary)
-            // Si on est au tout début d'un mystère (Phase 1, Grain 1)
-            // Et qu'on est en Joyeux, Lumineux ou Douloureux -> Retour au mystère d'avant
-            if (isFullRosary && phase == 1 && beadInPhase == 1) {
+        // Logique prioritaire : Gérer le retour quand on est au tout début d'une phase (Grain 1)
+        if (phase >= 1 && phase <= 5 && beadInPhase == 1) {
+             
+             // GESTION DU RETOUR ENTRE MYSTÈRES (Full Rosary)
+             if (isFullRosary && phase == 1) {
                  if (mysteryType == MYSTERY_SORROWFUL) {
                      mysteryType = MYSTERY_JOYFUL;
                      phase = 5;
@@ -238,29 +238,33 @@ class RosaryModel {
                      phase = 5;
                      beadInPhase = 12; // Retour à la fin des Douloureux (Gloria)
                      return;
+                 } else if (mysteryType == MYSTERY_LUMINOUS) {
+                      mysteryType = MYSTERY_JOYFUL; // (Note: Luminous logic if inserted later)
                  }
-            }
+             }
 
-            // Si on est au début d'une dizaine (grain 1), reculer nous renvoie à la phase d'avant
-            if (phase >= 1 && phase <= 5 && beadInPhase == 1) {
-                phase--;
-                if (phase == 0) {
-                    beadInPhase = 7; // Retour au Gloria de l'intro
-                } else {
-                    beadInPhase = 12; // Retour au Gloria de la dizaine précédente
-                }
-            } else {
-                beadInPhase--;
-            }
-        } else if (phase > 0) {
-            // Cas de secours si beadInPhase == 0 (ne devrait pas arriver avec la nouvelle logique)
-            phase--;
-            if (phase == 0) {
-                beadInPhase = 7; 
-            } else {
-                beadInPhase = 12;
-            }
+             // Retour standard vers la phase précédente
+             phase--;
+             if (phase == 0) {
+                 beadInPhase = 7; // Retour au Gloria de l'intro
+             } else {
+                 beadInPhase = 12; // Retour au Gloria de la dizaine précédente
+             }
+             return;
         }
+
+        // Cas normal : on recule dans la phase courante
+        if (beadInPhase > 0) {
+            beadInPhase--;
+            
+            // Sécurité : si on tombe à 0 en phase 1-5 (impossible normalement via logique ci-dessus, mais au cas où)
+            if (beadInPhase == 0 && phase >= 1) {
+                // On est techniquement sur le "Gloria" de la phase d'avant
+                // Mais pour l'affichage, on doit être cohérent.
+                // La logique ci-dessus (beadInPhase == 1) doit tout attraper.
+                // Si on est ici, c'est qu'on était à bead 2 ? -> bead 1 (Notre Père). OK.
+            }
+        } 
         
         isComplete = false;
     }
@@ -352,6 +356,7 @@ class RosaryModel {
             }
             if (beadInPhase == 1) { return STATE_OUR_FATHER; }
             if (beadInPhase >= 2 && beadInPhase <= 11) { return STATE_HAIL_MARY; }
+            if (beadInPhase == 12) { return STATE_GLORY; }
             // Fin de phase gérée par passage à phase suivante
         }
 
