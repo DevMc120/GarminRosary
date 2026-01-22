@@ -11,7 +11,15 @@
     <string id="menu_glorious">Misterios Gloriosos</string>
     <string id="menu_luminous">Mist. Luminosos</string>
     <string id="menu_rosary">Rosario (15 decenas)</string>
-    <string id="MysteryAuto">Misterio del día</string>
+    <string id="MysteryAuto">Misterios del día</string>
+    
+    <!-- Short versions for small screens (FR55, etc.) -->
+    <string id="menu_joyful_short">Mist. Gozosos</string>
+    <string id="menu_sorrowful_short">Mist. Dolorosos</string>
+    <string id="menu_glorious_short">Mist. Gloriosos</string>
+    <string id="menu_luminous_short">Mist. Luminosos</string>
+    <string id="menu_rosary_short">Rosario (15)</string>
+    <string id="MysteryAuto_short">Mist. del día</string>
     
     <!-- Names of Mystery Types -->
     <string id="mystery_joyful">Gozosos</string>

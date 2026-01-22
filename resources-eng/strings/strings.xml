@@ -11,7 +11,15 @@
     <string id="menu_glorious">Glorious Mysteries</string>
     <string id="menu_luminous">Luminous Mysteries</string>
     <string id="menu_rosary">Rosary (15 decades)</string>
-    <string id="MysteryAuto">Mystery of the Day</string>
+    <string id="MysteryAuto">Mysteries of the Day</string>
+    
+    <!-- Short versions for small screens (FR55, etc.) -->
+    <string id="menu_joyful_short">Joyful Myst.</string>
+    <string id="menu_sorrowful_short">Sorrowful Myst.</string>
+    <string id="menu_glorious_short">Glorious Myst.</string>
+    <string id="menu_luminous_short">Luminous Myst.</string>
+    <string id="menu_rosary_short">Rosary (15 dec.)</string>
+    <string id="MysteryAuto_short">Myst. of Day</string>
     
     <!-- Names of Mystery Types -->
     <string id="mystery_joyful">Joyful</string>

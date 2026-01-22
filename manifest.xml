@@ -42,6 +42,32 @@
             <iq:product id="fr945"/>
             <iq:product id="fr955"/>
             <iq:product id="fr965"/>
+            
+            <!-- New Additions (Q1 2026) -->
+            <iq:product id="vivoactive5"/>
+            <iq:product id="fr55"/>
+            <iq:product id="venusq2"/>
+            <iq:product id="fr165"/>
+            <iq:product id="epix2"/>
+            <iq:product id="epix2pro42mm"/>
+            <iq:product id="epix2pro47mm"/>
+            <iq:product id="epix2pro51mm"/>
+            
+            <!-- Music Variants (100% Compatible) -->
+            <iq:product id="venusq2m"/>
+            <iq:product id="fr255m"/>
+            <iq:product id="fr255sm"/>
+            
+            <!-- High End & Recent -->
+            <iq:product id="fenix8solar47mm"/>
+            
+            <!-- User Requested Additions (Compatible) -->
+            <iq:product id="fr245"/>
+            <iq:product id="fr935"/>
+            <iq:product id="venu2s"/>
+            
+            <!-- Experimental: Monochrome/Instinct 2 -->
+            <iq:product id="instinct2"/>
         </iq:products>
         <!--
             Use "Monkey C: Edit Permissions" from the Visual Studio Code command
@@ -58,6 +84,7 @@
             <iq:language>spa</iq:language>
             <iq:language>ita</iq:language>
             <iq:language>por</iq:language>
+            <iq:language>pob</iq:language> <!-- Brazilian Portuguese (uses same resources as 'por') -->
             <iq:language>deu</iq:language>
             <iq:language>pol</iq:language>
         </iq:languages>

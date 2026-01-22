@@ -11,7 +11,15 @@
     <string id="menu_glorious">Tajemnice Chwalebne</string>
     <string id="menu_luminous">Tajemnice Światła</string>
     <string id="menu_rosary">Różaniec (15 tajemnic)</string>
-    <string id="MysteryAuto">Tajemnica Dnia</string>
+    <string id="MysteryAuto">Tajemnice Dnia</string>
+    
+    <!-- Short versions for small screens (FR55, etc.) -->
+    <string id="menu_joyful_short">Tajem. Radosne</string>
+    <string id="menu_sorrowful_short">Tajem. Bolesne</string>
+    <string id="menu_glorious_short">Tajem. Chwalebne</string>
+    <string id="menu_luminous_short">Tajem. Światła</string>
+    <string id="menu_rosary_short">Różaniec (15)</string>
+    <string id="MysteryAuto_short">Tajem. Dnia</string>
     
     <!-- Names of Mystery Types -->
     <string id="mystery_joyful">Radosne</string>

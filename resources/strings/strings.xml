@@ -10,7 +10,15 @@
     <string id="menu_glorious">Mystères Glorieux</string>
     <string id="menu_luminous">Mystères Lumineux</string>
     <string id="menu_rosary">Rosaire (15 dizaines)</string>
-    <string id="MysteryAuto">Mystère du jour</string>
+    <string id="MysteryAuto">Mystères du jour</string>
+    
+    <!-- Short versions for small screens (FR55, etc.) -->
+    <string id="menu_joyful_short">Myst. Joyeux</string>
+    <string id="menu_sorrowful_short">Myst. Douloureux</string>
+    <string id="menu_glorious_short">Myst. Glorieux</string>
+    <string id="menu_luminous_short">Myst. Lumineux</string>
+    <string id="menu_rosary_short">Rosaire (15 diz.)</string>
+    <string id="MysteryAuto_short">Myst. du jour</string>
     
     <!-- Names of Mystery Types -->
     <string id="mystery_joyful">Joyeux</string>

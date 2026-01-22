@@ -115,6 +115,9 @@ class RosaryModel {
 
         totalBeads++;
         beadInPhase++;
+        
+        // Save state after modification
+        saveState();
 
         // Phase 0 : Introduction (6 étapes)
         if (phase == 0) {
@@ -194,8 +197,12 @@ class RosaryModel {
                             beadInPhase = 13;
                             totalBeads--; // Correction : l'écran de transition n'est pas un grain
                             return STATE_MYSTERY_TRANSITION;
-                        }
-                        // Si Glorieux -> Fin normale
+                        } 
+                        // FALLBACK: Si on est en Full Rosary mais autre mystère (Luminous/Glorious mal configuré)
+                        // On force la fin normale (Glorious) ou transition si bug Luminous -> Sorrowful
+                        // Pour l'instant, Glorious -> Fin, Autres -> Fin.
+                        // Pour l'instant, Glorious -> Fin, Autres -> Fin.
+                        // Pas de changement ici, mais on s'assure que reset() a bien fait le job.
                     }
                     
                     // Fin standard
@@ -217,54 +224,71 @@ class RosaryModel {
     }
 
     //! Recule d'un grain
-    //! Recule d'un grain
     function previous() as Void {
+        // Gestion spéciale : si on est sur l'écran de transition entre mystères
+        if (pendingMysteryTransition) {
+            pendingMysteryTransition = false;
+            // Revenir au dernier grain du mystère précédent (Gloria de la dizaine 5)
+            phase = 5;
+            beadInPhase = 12;
+            if (totalBeads > 0) {
+                totalBeads--;
+            }
+            isComplete = false;
+            saveState(); // Save state
+            return; // Important: ne pas continuer la logique normale
+        }
+        
         if (totalBeads > 0) {
             totalBeads--;
         }
         
-        // Logique prioritaire : Gérer le retour quand on est au tout début d'une phase (Grain 1)
-        if (phase >= 1 && phase <= 5 && beadInPhase == 1) {
-             
-             // GESTION DU RETOUR ENTRE MYSTÈRES (Full Rosary)
-             if (isFullRosary && phase == 1) {
-                 if (mysteryType == MYSTERY_SORROWFUL) {
-                     mysteryType = MYSTERY_JOYFUL;
-                     phase = 5;
-                     beadInPhase = 12; // Retour à la fin des Joyeux (Gloria)
-                     return;
-                 } else if (mysteryType == MYSTERY_GLORIOUS) {
-                     mysteryType = MYSTERY_SORROWFUL;
-                     phase = 5;
-                     beadInPhase = 12; // Retour à la fin des Douloureux (Gloria)
-                     return;
-                 } else if (mysteryType == MYSTERY_LUMINOUS) {
-                      mysteryType = MYSTERY_JOYFUL; // (Note: Luminous logic if inserted later)
-                 }
-             }
-
-             // Retour standard vers la phase précédente
-             phase--;
-             if (phase == 0) {
-                 beadInPhase = 7; // Retour au Gloria de l'intro
-             } else {
-                 beadInPhase = 12; // Retour au Gloria de la dizaine précédente
-             }
-             return;
-        }
-
-        // Cas normal : on recule dans la phase courante
+        // D'abord décrémenter le grain dans la phase actuelle
         if (beadInPhase > 0) {
             beadInPhase--;
+        }
+        
+        // Save state
+        saveState();
+        
+        // PUIS vérifier si on est tombé à 0 (besoin de revenir à la phase précédente)
+        if (beadInPhase == 0) {
+            // On doit revenir à la phase/dizaine précédente
             
-            // Sécurité : si on tombe à 0 en phase 1-5 (impossible normalement via logique ci-dessus, mais au cas où)
-            if (beadInPhase == 0 && phase >= 1) {
-                // On est techniquement sur le "Gloria" de la phase d'avant
-                // Mais pour l'affichage, on doit être cohérent.
-                // La logique ci-dessus (beadInPhase == 1) doit tout attraper.
-                // Si on est ici, c'est qu'on était à bead 2 ? -> bead 1 (Notre Père). OK.
+            // GESTION DU RETOUR ENTRE MYSTÈRES (Full Rosary)
+            if (isFullRosary && phase == 1) {
+                // Retour depuis la première dizaine d'un mystère vers le mystère précédent
+                if (mysteryType == MYSTERY_SORROWFUL) {
+                    mysteryType = MYSTERY_JOYFUL;
+                    phase = 5;
+                    beadInPhase = 12; // Retour à la fin des Joyeux (Gloria)
+                    return;
+                } else if (mysteryType == MYSTERY_GLORIOUS) {
+                    mysteryType = MYSTERY_SORROWFUL;
+                    phase = 5;
+                    beadInPhase = 12; // Retour à la fin des Douloureux (Gloria)
+                    return;
+                } else if (mysteryType == MYSTERY_LUMINOUS) {
+                    mysteryType = MYSTERY_JOYFUL;
+                    phase = 5;
+                    beadInPhase = 12;
+                    return;
+                }
             }
-        } 
+            
+            // Retour standard vers la phase précédente
+            if (phase > 0) {
+                phase--;
+                if (phase == 0) {
+                    beadInPhase = 8; // Retour au Gloria de l'intro (grain 8)
+                } else {
+                    beadInPhase = 12; // Retour au Gloria de la dizaine précédente
+                }
+            } else {
+                // On est en phase 0 et beadInPhase = 0, rester au début
+                beadInPhase = 0;
+            }
+        }
         
         isComplete = false;
     }
@@ -405,6 +429,7 @@ class RosaryModel {
         // Sinon "Recommencer" au milieu des Douloureux nous laisse bloqué dans les Douloureux.
         if (isFullRosary) {
             mysteryType = MYSTERY_JOYFUL;
+            isManualMystery = true; // Force manual to prevent day-based override
         }
     }
     
@@ -414,6 +439,7 @@ class RosaryModel {
         isManualMystery = true;
         isFullRosary = false; // IMPORTANT: Désactive le mode Rosaire si on choisit un mystère spécifique
         reset();
+        saveState();
     }
 
     //! Configure le mode Automatique (mystère du jour)
@@ -422,6 +448,7 @@ class RosaryModel {
         isManualMystery = false;
         isFullRosary = false;
         reset();
+        saveState();
     }
     
     //! Configure le mode Rosaire Complet (3 mystères)
@@ -430,6 +457,7 @@ class RosaryModel {
         isManualMystery = true; // On considère que c'est un mode manuel
         mysteryType = MYSTERY_JOYFUL; // On commence toujours par les Joyeux
         reset();
+        saveState();
     }
     
     //! Reset Utilisateur (via Menu) : Force le retour à l'Auto

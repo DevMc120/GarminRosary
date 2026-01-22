@@ -154,20 +154,28 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
 
     //! Bouton Menu - Affiche le menu
     function onMenu() as Boolean {
-        var title = WatchUi.loadResource(Rez.Strings.AppName) as String;
+        // Detect screen size to choose appropriate string length
+        var settings = System.getDeviceSettings();
+        var screenWidth = settings.screenWidth;
+        var screenHeight = settings.screenHeight;
+        var isRectangular = (screenHeight > screenWidth * 1.1);
+        var useShortStrings = (screenWidth < 220) || isRectangular; // FR55 (small) OR Venu Sq (rectangular)
+        
+        // On small screens, don't show title (it gets truncated)
+        var title = useShortStrings ? null : WatchUi.loadResource(Rez.Strings.AppName) as String;
         var menu = new WatchUi.Menu2({:title=>title});
         
-        // Menu Items
+        // Menu Items with conditional string selection
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_restart) as String, null, "restart", null));
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.MysteryAuto) as String, null, "mystery_auto", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.MysteryAuto_short : Rez.Strings.MysteryAuto) as String, null, "mystery_auto", null));
         
         // Nouvelle option : Rosaire Complet (3 mystères)
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_rosary) as String, null, "start_rosary", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_rosary_short : Rez.Strings.menu_rosary) as String, null, "start_rosary", null));
         
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_joyful) as String, null, "mystery_joyful", null));
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_sorrowful) as String, null, "mystery_sorrowful", null));
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_glorious) as String, null, "mystery_glorious", null));
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_luminous) as String, null, "mystery_luminous", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_joyful_short : Rez.Strings.menu_joyful) as String, null, "mystery_joyful", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_sorrowful_short : Rez.Strings.menu_sorrowful) as String, null, "mystery_sorrowful", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_glorious_short : Rez.Strings.menu_glorious) as String, null, "mystery_glorious", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_luminous_short : Rez.Strings.menu_luminous) as String, null, "mystery_luminous", null));
         
         WatchUi.pushView(menu, new GarminRosaryMenuDelegate(_model), WatchUi.SLIDE_UP);
         return true;

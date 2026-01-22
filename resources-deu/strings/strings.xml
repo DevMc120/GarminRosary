@@ -6,23 +6,31 @@
 
     <!-- Menu -->
     <string id="menu_restart">Neustart</string>
-    <string id="menu_joyful">Freudenreiche Myst.</string>
-    <string id="menu_sorrowful">Schmerzhafte Myst.</string>
-    <string id="menu_glorious">Glorreiche Myst.</string>
-    <string id="menu_luminous">Lichtreiche Myst.</string>
+    <string id="menu_joyful">Freudenreiche Geh.</string>
+    <string id="menu_sorrowful">Schmerzhafte Geh.</string>
+    <string id="menu_glorious">Glorreiche Geh.</string>
+    <string id="menu_luminous">Lichtreiche Geh.</string>
     <string id="menu_rosary">Rosenkranz (15 Gesätze)</string>
-    <string id="MysteryAuto">Geheimnis des Tages</string>
+    <string id="MysteryAuto">Geheimnisse des Tages</string>
+    
+    <!-- Short versions for small screens (FR55, etc.) -->
+    <string id="menu_joyful_short">Freuden. Geh.</string>
+    <string id="menu_sorrowful_short">Schmerz. Geh.</string>
+    <string id="menu_glorious_short">Glorreiche Geh.</string>
+    <string id="menu_luminous_short">Lichtreiche Geh.</string>
+    <string id="menu_rosary_short">Rosenkranz (15)</string>
+    <string id="MysteryAuto_short">Geh. d. Tages</string>
     
     <!-- Names of Mystery Types -->
-    <string id="mystery_joyful">Freudenreiche</string>
-    <string id="mystery_sorrowful">Schmerzhafte</string>
-    <string id="mystery_glorious">Glorreiche</string>
-    <string id="mystery_luminous">Lichtreiche</string>
+    <string id="mystery_joyful">Freudenreichen</string>
+    <string id="mystery_sorrowful">Schmerzhaften</string>
+    <string id="mystery_glorious">Glorreichen</string>
+    <string id="mystery_luminous">Lichtreichen</string>
 
     <!-- Prayers -->
     <string id="prayer_cross">Kreuzzeichen</string>
-    <string id="prayer_creed">Glaubensbekenntnis</string>
-    <string id="prayer_pater">Vater unser</string>
+    <string id="prayer_creed">Credo</string>
+    <string id="prayer_pater">Vaterunser</string>
     <string id="prayer_ave">Ave Maria</string>
     <string id="prayer_gloria">Ehre sei dem Vater</string>
     <string id="prayer_salve">Salve Regina</string>
