@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosenkranz</string>
-    <string id="AppVersion">1.1.1</string>
+    <string id="AppVersion">1.3.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Neustart</string>
@@ -12,6 +12,21 @@
     <string id="menu_luminous">Lichtreiche Geh.</string>
     <string id="menu_rosary">Rosenkranz (15 Gesätze)</string>
     <string id="MysteryAuto">Geheimnisse des Tages</string>
+    <string id="menu_auto_meditation">Auto-Meditation</string>
+    <string id="menu_help">Hilfe / Steuerung</string>
+    <string id="help_text">STEUERUNG
+    
+[TASTEN]
+Select: Nächstes Gebet
+Select halten: Text
+Hoch/Runter: Scrollen
+Menü: Optionen
+Zurück: Speichern
+
+[TOUCH]
+Tippen: Weiter
+Swipe Hoch: Text
+Swipe Runter: Zurück</string>
     
     <!-- Short versions for small screens (FR55, etc.) -->
     <string id="menu_joyful_short">Freuden. Geh.</string>
@@ -70,7 +85,7 @@
     <string id="glorious_1_fruit">Glaube</string>
     <string id="glorious_2_title">Die Himmelfahrt</string>
     <string id="glorious_2_fruit">Hoffnung</string>
-    <string id="glorious_3_title">Sendung des Geistes</string>
+    <string id="glorious_3_title">Pfingsten</string>
     <string id="glorious_3_fruit">Liebe zu Gott</string>
     <string id="glorious_4_title">Mariä Himmelfahrt</string>
     <string id="glorious_4_fruit">Gnade eines guten Todes</string>
@@ -88,4 +103,115 @@
     <string id="luminous_4_fruit">Sehnsucht nach Heiligkeit</string>
     <string id="luminous_5_title">Einsetzung der Eucharistie</string>
     <string id="luminous_5_fruit">Anbetung</string>
+
+    <!-- Menu Meditation -->
+    <string id="menu_meditation">Betrachtung</string>
+    <string id="menu_meditation_short">Betracht.</string>
+
+    <!-- Meditation Texts -->
+    <string id="hint_scroll">Scrollen</string>
+    <string id="hint_more">Mehr</string>
+    <string id="hint_up">Oben</string>
+    <string id="hint_back">Zurück</string>
+    <string id="hint_close">Tap oder BACK</string>
+    <string id="hint_tap_close">Tap zum Schließen</string>
+    <string id="label_fruit">Frucht:</string>
+   <string id="joyful_1_meditation">In der Stille spricht Maria ihr „Fiat“. Der Schöpfer wird Geschöpf. Bitten wir um die Gnade, Gott unser Leben völlig zu überlassen. (Lk 1, 38)</string>
+    <string id="joyful_2_meditation">Maria trägt das Wort zu Elisabeth. Tragen wir Christus zu den anderen, nicht durch viele Worte, sondern durch dienende und strahlende Nächstenliebe. (Lk 1, 43)</string>
+    <string id="joyful_3_meditation">Der König des Weltalls wählt die Armut der Krippe. Lösen wir unser Herz von irdischen Gütern, um den einzigen wahren Schatz aufzunehmen. (Lk 2, 7)</string>
+    <string id="joyful_4_meditation">Simeon erkennt das Licht der Völker. Opfern wir uns selbst dem Herrn auf, um gereinigt und ganz seinem Dienst geweiht zu sein. (Lk 2, 22)</string>
+    <string id="joyful_5_meditation">Jesus lehrt den absoluten Vorrang Gottes. Möge uns der Verlust seiner Nähe unerträglich sein; suchen wir ihn stets im Tempel unseres Herzens. (Lk 2, 49)</string>
+
+    <string id="sorrowful_1_meditation">Angesichts der Sünde schwitzt er Blut. „Nicht mein Wille, sondern deiner.“ Vereinen wir unsere Ängste mit seinem Opfer im vollkommenen Gehorsam. (Lk 22, 42)</string>
+    <string id="sorrowful_2_meditation">Das unschuldige Lamm sühnt unsere fleischlichen Sünden. Schmeicheln wir nicht dem Körper, sondern vereinen wir alles mit seinen heiligen Wunden. (Jes 53, 5)</string>
+    <string id="sorrowful_3_meditation">Der König der Könige sühnt unseren Hochmut. Betrachten wir sein geschändetes Antlitz und nehmen wir Demütigungen an, damit seine Demut in uns herrsche. (Mt 27, 29)</string>
+    <string id="sorrowful_4_meditation">Jesus umarmt das Kreuz unseres Heils. Weisen wir unsere täglichen Kreuze nicht ab; mit Ihm getragen, werden sie zum Schlüssel des Himmels. (Lk 23, 26)</string>
+    <string id="sorrowful_5_meditation">Vom Kreuz herab schenkt er uns alles: Vergebung und seine Mutter. Leben wir fortan nicht mehr für uns, sondern für Ihn, der für uns gestorben ist. (Joh 19, 26)</string>
+
+    <string id="glorious_1_meditation">Der Tod ist besiegt, das Grab ist leer. Der Glaube vertreibt die Finsternis: Wenn wir mit ihm sterben, werden wir mit ihm leben in Ewigkeit. (Mt 28, 6)</string>
+    <string id="glorious_2_meditation">Unsere wahre Heimat ist im Himmel. Leben wir auf Erden als Pilger, die Seele in der Ewigkeit verankert, voll Sehnsucht nach Gott. (Apg 1, 9)</string>
+    <string id="glorious_3_meditation">Das Feuer des Geistes verwandelt Angst in Mut. Heiliger Geist, entzünde in uns deine Liebe und mach uns zu brennenden Zeugen des Evangeliums. (Apg 2, 4)</string>
+    <string id="glorious_4_meditation">Maria ist das Bild dessen, was wir sein werden. Bitten wir sie um Beistand in unserer Todesstunde für den Übergang in die Freude des Vaters.</string>
+    <string id="glorious_5_meditation">Maria, Königin und Mittlerin aller Gnaden. Vertrauen wir uns ihrem mütterlichen Schutz an: Sie führt uns sicher zum Thron ihres Sohnes. (Offb 12, 1)</string>
+
+    <string id="luminous_1_meditation">Der Himmel öffnet sich über dem Jordan. Erneuern wir die Gnade unserer Taufe: Wir sind Kinder Gottes, berufen, Jesus bedingungslos zu folgen. (Mt 3, 17)</string>
+    <string id="luminous_2_meditation">Auf Marias Bitte verwandelt Jesus Wasser in Wein. Vertrauen wir auf die Fürsprache der Mutter und übergeben wir Christus unseren Mangel. (Joh 2, 5)</string>
+    <string id="luminous_3_meditation">Das Reich Gottes ist da. Nehmen wir sein Wort der Wahrheit an, entsagen wir der Sünde und leben wir nach den Seligpreisungen. (Mk 1, 15)</string>
+    <string id="luminous_4_meditation">Der Glanz seiner Gottheit stärkt die Apostel. Blicken wir auf das lichtvolle Antlitz Jesu, um die Prüfungen des Glaubens mit Hoffnung zu bestehen. (Mt 17, 2)</string>
+    <string id="luminous_5_meditation">„Das ist mein Leib für euch.“ Jesus wird Speise, um in uns zu bleiben. Schöpfen wir aus der Eucharistie die Kraft zur hingebungsvollen Liebe. (Lk 22, 19)</string>
+
+    <string id="joyful_1_title_long">Die Verkündigung</string>
+    <string id="joyful_1_fruit_long">Demut</string>
+    <string id="joyful_2_title_long">Heimsuchung Mariens</string>
+    <string id="joyful_2_fruit_long">Nächstenliebe</string>
+    <string id="joyful_3_title_long">Die Geburt Jesu</string>
+    <string id="joyful_3_fruit_long">Geist der Armut</string>
+    <string id="joyful_4_fruit_long">Gehorsam</string>
+    <string id="joyful_5_title_long">Das Wiederfinden im Tempel</string>
+    <string id="joyful_5_title_medium">Wiederfinden im Tempel</string>
+    <string id="joyful_5_fruit_long">Suche nach Gott</string>
+
+    <string id="sorrowful_1_title_long">Die Todesangst</string>
+    <string id="sorrowful_1_fruit_long">Reue</string>
+    <string id="sorrowful_2_title_long">Die Geißelung</string>
+    <string id="sorrowful_2_fruit_long">Abtötung der Sinne</string>
+    <string id="sorrowful_3_title_long">Die Dornenkrönung</string>
+    <string id="sorrowful_3_title_medium">Dornenkrönung</string>
+    <string id="sorrowful_3_fruit_long">Abtötung des Geistes</string>
+    <string id="sorrowful_4_title_long">Die Kreuztragung</string>
+    <string id="sorrowful_4_fruit_long">Geduld</string>
+    <string id="sorrowful_5_title_long">Die Kreuzigung</string>
+    <string id="sorrowful_5_fruit_long">Liebe zu Gott</string>
+    
+    <string id="glorious_1_title_long">Die Auferstehung</string>
+    <string id="glorious_1_title_medium">Die Auferstehung</string>
+    <string id="glorious_1_fruit_long">Glaube</string>
+    <string id="glorious_2_title_long">Die Himmelfahrt</string>
+    <string id="glorious_2_title_medium">Die Himmelfahrt</string>
+    <string id="glorious_2_fruit_long">Hoffnung</string>
+    <string id="glorious_3_title_long">Pfingsten</string>
+    <string id="glorious_3_fruit_long">Liebe zu Gott</string>
+    <string id="glorious_4_title_long">Mariä Himmelfahrt</string>
+    <string id="glorious_4_fruit_long">Gnade eines guten Todes</string>
+    <string id="glorious_5_title_long">Die Krönung Mariens</string>
+    <string id="glorious_5_title_medium">Krönung Mariens</string>
+    <string id="glorious_5_fruit_long">Marienverehrung</string>
+    
+    <string id="luminous_1_title_long">Die Taufe im Jordan</string>
+    <string id="luminous_1_fruit_long">Treue zum Taufbund</string>
+    <string id="luminous_2_title_long">Die Hochzeit zu Kana</string>
+    <string id="luminous_2_fruit_long">Vertrauen</string>
+    <string id="luminous_3_title_long">Verkündigung des Reiches</string>
+    <string id="luminous_3_fruit_long">Bekehrung</string>
+    <string id="luminous_4_title_long">Die Verklärung</string>
+    <string id="luminous_4_fruit_long">Sehnsucht nach Heiligkeit</string>
+    <string id="luminous_5_fruit_long">Anbetung</string>
+
+    <!-- Long Titles -->
+    <string id="joyful_4_title_long">Darstellung im Tempel</string>
+    <string id="luminous_5_title_long">Einsetzung der Eucharistie</string>
+    <!-- Short Titles (German) -->
+    <string id="joyful_1_title_short">Die Verkündigung</string>
+    <string id="joyful_2_title_short">Die Heimsuchung</string>
+    <string id="joyful_3_title_short">Die Geburt Jesu</string>
+    <string id="joyful_4_title_short">Darstellung im Tempel</string>
+    <string id="joyful_5_title_short">Wiederfinden im Tempel</string>
+
+    <string id="sorrowful_1_title_short">Die Todesangst</string>
+    <string id="sorrowful_2_title_short">Die Geißelung</string>
+    <string id="sorrowful_3_title_short">Die Dornenkrönung</string>
+    <string id="sorrowful_4_title_short">Die Kreuztragung</string>
+    <string id="sorrowful_5_title_short">Die Kreuzigung</string>
+
+    <string id="glorious_1_title_short">Die Auferstehung</string>
+    <string id="glorious_2_title_short">Die Himmelfahrt</string>
+    <string id="glorious_3_title_short">Pfingsten</string>
+    <string id="glorious_4_title_short">Mariä Himmelfahrt</string>
+    <string id="glorious_5_title_short">Krönung Mariens</string>
+
+    <string id="luminous_1_title_short">Taufe im Jordan</string>
+    <string id="luminous_2_title_short">Hochzeit zu Kana</string>
+    <string id="luminous_3_title_short">Reich Gottes</string>
+    <string id="luminous_4_title_short">Die Verklärung</string>
+    <string id="luminous_5_title_short">Einsetzung Eucharistie</string>
 </strings>

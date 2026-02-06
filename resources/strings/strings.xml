@@ -1,90 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
-    <string id="AppName">Chapelet</string>
-    <string id="AppVersion">1.1.1</string>
+    <string id="AppName">Rosary</string>
+    <string id="AppVersion">1.3.0</string>
 
     <!-- Menu -->
-    <string id="menu_restart">Recommencer</string>
-    <string id="menu_joyful">Mystères Joyeux</string>
-    <string id="menu_sorrowful">Mystères Douloureux</string>
-    <string id="menu_glorious">Mystères Glorieux</string>
-    <string id="menu_luminous">Mystères Lumineux</string>
-    <string id="menu_rosary">Rosaire (15 dizaines)</string>
-    <string id="MysteryAuto">Mystères du jour</string>
+    <string id="menu_restart">Restart</string>
+    <string id="menu_joyful">Joyful Mysteries</string>
+    <string id="menu_sorrowful">Sorrowful Mysteries</string>
+    <string id="menu_glorious">Glorious Mysteries</string>
+    <string id="menu_luminous">Luminous Mysteries</string>
+    <string id="menu_rosary">Rosary (15 decades)</string>
+    <string id="MysteryAuto">Mysteries of the Day</string>
+    <string id="menu_auto_meditation">Auto-meditation</string>
+    <string id="menu_help">Help / Controls</string>
+    <string id="help_text">CONTROLS
+
+[BUTTONS]
+Select: Next Prayer
+Hold Select: Read Text
+Up/Down: Navigate
+Menu: Options
+Back: Exit &amp; Save
+
+[TOUCH]
+Tap: Next Prayer
+Swipe Up: Read Text
+Swipe Down: Previous</string>
     
     <!-- Short versions for small screens (FR55, etc.) -->
-    <string id="menu_joyful_short">Myst. Joyeux</string>
-    <string id="menu_sorrowful_short">Myst. Douloureux</string>
-    <string id="menu_glorious_short">Myst. Glorieux</string>
-    <string id="menu_luminous_short">Myst. Lumineux</string>
-    <string id="menu_rosary_short">Rosaire (15 diz.)</string>
-    <string id="MysteryAuto_short">Myst. du jour</string>
+    <string id="menu_joyful_short">Joyful Myst.</string>
+    <string id="menu_sorrowful_short">Sorrowful Myst.</string>
+    <string id="menu_glorious_short">Glorious Myst.</string>
+    <string id="menu_luminous_short">Luminous Myst.</string>
+    <string id="menu_rosary_short">Rosary (15 dec.)</string>
+    <string id="MysteryAuto_short">Myst. of Day</string>
     
     <!-- Names of Mystery Types -->
-    <string id="mystery_joyful">Joyeux</string>
-    <string id="mystery_sorrowful">Douloureux</string>
-    <string id="mystery_glorious">Glorieux</string>
-    <string id="mystery_luminous">Lumineux</string>
+    <string id="mystery_joyful">Joyful</string>
+    <string id="mystery_sorrowful">Sorrowful</string>
+    <string id="mystery_glorious">Glorious</string>
+    <string id="mystery_luminous">Luminous</string>
 
     <!-- Prayers -->
-    <string id="prayer_cross">Signe de Croix</string>
-    <string id="prayer_creed">Je Crois en Dieu</string>
-    <string id="prayer_pater">Notre Père</string>
-    <string id="prayer_ave">Ave Maria</string>
-    <string id="prayer_gloria">Gloire au Père</string>
+    <string id="prayer_cross">Sign of the Cross</string>
+    <string id="prayer_creed">Apostles' Creed</string>
+    <string id="prayer_pater">Our Father</string>
+    <string id="prayer_ave">Hail Mary</string>
+    <string id="prayer_gloria">Glory Be</string>
     <string id="prayer_salve">Salve Regina</string>
 
     <!-- UI Text -->
     <string id="text_amen">AMEN</string>
-    <string id="text_finished">Chapelet terminé</string>
-    <string id="text_finished_rosary">Rosaire terminé</string>
+    <string id="text_finished">Rosary Complete</string>
+    <string id="text_finished_rosary">Full Rosary Complete</string>
     <string id="text_intro">Intro</string>
 
     <!-- Joyful Mysteries -->
-    <string id="joyful_1_title">L'Annonciation</string>
-    <string id="joyful_1_fruit">Humilité</string>
-    <string id="joyful_2_title">La Visitation</string>
-    <string id="joyful_2_fruit">Charité fraternelle</string>
-    <string id="joyful_3_title">La Nativité</string>
-    <string id="joyful_3_fruit">Pauvreté</string>
-    <string id="joyful_4_title">La Présentation</string>
-    <string id="joyful_4_fruit">Obéissance</string>
-    <string id="joyful_5_title">Le Recouvrement</string>
-    <string id="joyful_5_fruit">Recherche de Dieu</string>
+    <string id="joyful_1_title">The Annunciation</string>
+    <string id="joyful_1_fruit">Humility</string>
+    <string id="joyful_2_title">The Visitation</string>
+    <string id="joyful_2_fruit">Fraternal Charity</string>
+    <string id="joyful_3_title">The Nativity</string>
+    <string id="joyful_3_fruit">Poverty of Spirit</string>
+    <string id="joyful_4_title">The Presentation</string>
+    <string id="joyful_4_fruit">Obedience</string>
+    <string id="joyful_5_title">Finding in the Temple</string>
+    <string id="joyful_5_fruit">Seeking God</string>
 
     <!-- Sorrowful Mysteries -->
-    <string id="sorrowful_1_title">L'Agonie</string>
+    <string id="sorrowful_1_title">The Agony in the Garden</string>
     <string id="sorrowful_1_fruit">Contrition</string>
-    <string id="sorrowful_2_title">La Flagellation</string>
-    <string id="sorrowful_2_fruit">Mortification des sens</string>
-    <string id="sorrowful_3_title">Le Couronnement</string>
-    <string id="sorrowful_3_fruit">Mortification de l'esprit</string>
-    <string id="sorrowful_4_title">Le Portement</string>
-    <string id="sorrowful_4_fruit">Persévérance dans l'épreuve</string>
-    <string id="sorrowful_5_title">La Crucifixion</string>
-    <string id="sorrowful_5_fruit">Amour de Dieu</string>
+    <string id="sorrowful_2_title">The Scourging</string>
+    <string id="sorrowful_2_fruit">Mortification of Senses</string>
+    <string id="sorrowful_3_title">Crowning with Thorns</string>
+    <string id="sorrowful_3_fruit">Mortification of Spirit</string>
+    <string id="sorrowful_4_title">Carrying of the Cross</string>
+    <string id="sorrowful_4_fruit">Patience in Trials</string>
+    <string id="sorrowful_5_title">The Crucifixion</string>
+    <string id="sorrowful_5_fruit">Love of God</string>
 
     <!-- Glorious Mysteries -->
-    <string id="glorious_1_title">La Résurrection</string>
-    <string id="glorious_1_fruit">Foi</string>
-    <string id="glorious_2_title">L'Ascension</string>
-    <string id="glorious_2_fruit">Espérance</string>
-    <string id="glorious_3_title">La Pentecôte</string>
-    <string id="glorious_3_fruit">Charité et zèle</string>
-    <string id="glorious_4_title">L'Assomption</string>
-    <string id="glorious_4_fruit">Grâce d'une bonne mort</string>
-    <string id="glorious_5_title">Le Couronnement de Marie</string>
-    <string id="glorious_5_fruit">Confiance en Marie</string>
+    <string id="glorious_1_title">The Resurrection</string>
+    <string id="glorious_1_fruit">Faith</string>
+    <string id="glorious_2_title">The Ascension</string>
+    <string id="glorious_2_fruit">Hope</string>
+    <string id="glorious_3_title">Pentecost</string>
+    <string id="glorious_3_fruit">Charity and Zeal</string>
+    <string id="glorious_4_title">The Assumption</string>
+    <string id="glorious_4_fruit">Grace of a Happy Death</string>
+    <string id="glorious_5_title">Coronation of Mary</string>
+    <string id="glorious_5_fruit">Trust in Mary</string>
 
     <!-- Luminous Mysteries -->
-    <string id="luminous_1_title">Le Baptême</string>
-    <string id="luminous_1_fruit">Fidélité au Baptême</string>
-    <string id="luminous_2_title">Les Noces de Cana</string>
-    <string id="luminous_2_fruit">Confiance</string>
-    <string id="luminous_3_title">L'Annonce du Royaume</string>
+    <string id="luminous_1_title">Baptism of Our Lord</string>
+    <string id="luminous_1_fruit">Fidelity to Baptism</string>
+    <string id="luminous_2_title">Wedding at Cana</string>
+    <string id="luminous_2_fruit">To Jesus through Mary</string>
+    <string id="luminous_3_title">Proclamation of Kingdom</string>
     <string id="luminous_3_fruit">Conversion</string>
-    <string id="luminous_4_title">La Transfiguration</string>
-    <string id="luminous_4_fruit">Désir de sainteté</string>
-    <string id="luminous_5_title">L'Eucharistie</string>
-    <string id="luminous_5_fruit">Amour de l'Eucharistie</string>
+    <string id="luminous_4_title">The Transfiguration</string>
+    <string id="luminous_4_fruit">Desire for Holiness</string>
+    <string id="luminous_5_title">Institution of Eucharist</string>
+    <string id="luminous_5_fruit">Adoration</string>
+
+    <string id="joyful_1_title_long">The Annunciation</string>
+    <string id="joyful_1_fruit_long">Humility</string>
+    <string id="joyful_2_title_long">The Visitation</string>
+    <string id="joyful_2_fruit_long">Charity</string>
+    <string id="joyful_3_title_long">The Nativity</string>
+    <string id="joyful_3_fruit_long">Poverty of Spirit</string>
+    <string id="joyful_4_title_long">The Presentation</string>
+    <string id="joyful_4_fruit_long">Obedience</string>
+    <string id="joyful_5_title_long">Finding in the Temple</string>
+    <string id="joyful_5_title_medium">Finding in the Temple</string>
+    <string id="joyful_5_fruit_long">Seeking God</string>
+
+    <string id="sorrowful_1_title_long">The Agony in the Garden</string>
+    <string id="sorrowful_1_fruit_long">Contrition</string>
+    <string id="sorrowful_2_title_long">The Scourging</string>
+    <string id="sorrowful_2_fruit_long">Mortification of Senses</string>
+    <string id="sorrowful_3_title_long">Crowning with Thorns</string>
+    <string id="sorrowful_3_title_medium">Crowning with Thorns</string>
+    <string id="sorrowful_3_fruit_long">Mortification of Spirit</string>
+    <string id="sorrowful_4_title_long">Carrying of the Cross</string>
+    <string id="sorrowful_4_fruit_long">Patience in Trials</string>
+    <string id="sorrowful_5_title_long">The Crucifixion</string>
+    <string id="sorrowful_5_fruit_long">Love of God</string>
+    
+    <string id="glorious_1_title_long">The Resurrection</string>
+    <string id="glorious_1_title_medium">The Resurrection</string>
+    <string id="glorious_1_fruit_long">Faith</string>
+    <string id="glorious_2_title_long">The Ascension</string>
+    <string id="glorious_2_title_medium">The Ascension</string>
+    <string id="glorious_2_fruit_long">Hope</string>
+    <string id="glorious_3_title_long">Pentecost</string>
+    <string id="glorious_3_fruit_long">Charity and Zeal</string>
+    <string id="glorious_4_title_long">The Assumption</string>
+    <string id="glorious_4_fruit_long">Grace of a Happy Death</string>
+    <string id="glorious_5_title_long">Coronation of Mary</string>
+    <string id="glorious_5_title_medium">Coronation of Mary</string>
+    <string id="glorious_5_fruit_long">Trust in Mary</string>
+    
+    <string id="luminous_1_title_long">Baptism of Our Lord</string>
+    <string id="luminous_1_fruit_long">Fidelity to Baptism</string>
+    <string id="luminous_2_title_long">Wedding at Cana</string>
+    <string id="luminous_2_fruit_long">To Jesus through Mary</string>
+    <string id="luminous_3_title_long">Proclamation of Kingdom</string>
+    <string id="luminous_3_fruit_long">Conversion</string>
+    <string id="luminous_4_title_long">The Transfiguration</string>
+    <string id="luminous_4_fruit_long">Desire for Holiness</string>
+    <string id="luminous_5_title_long">Institution of Eucharist</string>
+    <string id="luminous_5_fruit_long">Adoration</string>
+
+    <!-- Menu Meditation -->
+    <string id="menu_meditation">Meditation</string>
+    <string id="menu_meditation_short">Medit.</string>
+
+    <!-- Meditation Texts -->
+    <string id="hint_scroll">Scroll</string>
+    <string id="hint_more">More</string>
+    <string id="hint_up">Up</string>
+    <string id="hint_back">Back</string>
+    <string id="hint_close">Tap or BACK close</string>
+    <string id="hint_tap_close">Tap to close</string>
+    <string id="label_fruit">Fruit:</string>
+
+    <string id="joyful_1_meditation">In silence, Mary gives her "Fiat." The Creator becomes a creature. Let us ask for the grace to surrender our lives completely to God. (Lk 1:38)</string>
+    <string id="joyful_2_meditation">Bearing the Word, Mary hastens to Elizabeth. Let us carry Christ to others, not with many words, but through the joy of radiant charity. (Lk 1:39)</string>
+    <string id="joyful_3_meditation">The King of the Universe is born in a stable. He becomes poor to enrich us. Let us detach our hearts from worldly goods to receive the true Treasure. (Lk 2:7)</string>
+    <string id="joyful_4_meditation">Simeon recognizes the Light of nations. Let us offer ourselves to the Lord, to be purified and consecrated entirely to His service. (Lk 2:22)</string>
+    <string id="joyful_5_meditation">Jesus teaches the absolute primacy of the Father. May the loss of His presence be unbearable to us; let us seek Him always in the temple of our heart. (Lk 2:49)</string>
+
+    <string id="sorrowful_1_meditation">Facing sin, Jesus sweats blood. "Not my will, but Yours." Let us unite our anxieties with His perfect offering and say "Yes" to God. (Lk 22:42)</string>
+    <string id="sorrowful_2_meditation">The innocent Lamb is scourged to atone for sins of the flesh. Let us not indulge our bodies, but unite our sufferings to His holy wounds. (Is 53:5)</string>
+    <string id="sorrowful_3_meditation">The King of Kings is crowned with mockery. He atones for our pride. Let us accept humiliations with humility, that He may reign in our minds. (Mt 27:29)</string>
+    <string id="sorrowful_4_meditation">Jesus embraces the Cross of our salvation. Let us not refuse our daily crosses; carried with Him, they become the key that opens Heaven. (Lk 23:26)</string>
+    <string id="sorrowful_5_meditation">From the Cross, He gives us everything: His forgiveness and His Mother. Let us live no longer for ourselves, but for Him who died for us. (Jn 19:26)</string>
+
+    <string id="glorious_1_meditation">The tomb is empty, death is conquered. Let Easter light dispel our darkness: if we die with Him, we shall live with Him forever. (Mt 28:6)</string>
+    <string id="glorious_2_meditation">Jesus returns to the Father to prepare a place for us. Let us lift up our hearts: our true homeland is in Heaven, not on this earth. (Acts 1:9)</string>
+    <string id="glorious_3_meditation">The Fire of the Spirit descends. It turns fear into boldness. Come Holy Spirit, kindle in us Your charity and make us burning witnesses. (Acts 2:4)</string>
+    <string id="glorious_4_meditation">The Mother of God is assumed into glory. She is the image of what we shall be. Let us ask her to assist us at the hour of our death. (Tradition)</string>
+    <string id="glorious_5_meditation">Mary is Queen and Mediatrix of all graces. Let us trust in her maternal protection: she will lead us safely to the throne of her Son. (Rev 12:1)</string>
+
+    <string id="luminous_1_meditation">The Innocent One descends into the waters. Let us awaken the grace of our Baptism: we are children of God, called to listen to Jesus. (Mt 3:17)</string>
+    <string id="luminous_2_meditation">At Mary's prayer, Jesus changes water into wine. Trusting in her intercession ("Do whatever He tells you"), let us entrust our needs to Christ. (Jn 2:5)</string>
+    <string id="luminous_3_meditation">The Kingdom is here. Let us welcome His Word of truth that sets us free, renouncing sin to live according to the Beatitudes. (Mk 1:15)</string>
+    <string id="luminous_4_meditation">The glory of God shines through Christ's humanity. Let us fix our gaze on His luminous Face to endure the trials of faith with hope. (Mt 17:2)</string>
+    <string id="luminous_5_meditation">"This is my body given for you." Jesus becomes food to remain in us. Let us draw strength from the Eucharist to love as He loved. (Lk 22:19)</string>
+
+    <!-- Long Titles -->
+    <string id="joyful_4_title_long">Presentation in the Temple</string>
+    <string id="luminous_5_title_long">Institution of the Eucharist</string>
+    <!-- Short Titles (Fallback/English) -->
+    <string id="joyful_1_title_short">The Annunciation</string>
+    <string id="joyful_2_title_short">The Visitation</string>
+    <string id="joyful_3_title_short">The Nativity</string>
+    <string id="joyful_4_title_short">Presentation in Temple</string>
+    <string id="joyful_5_title_short">Finding in the Temple</string>
+
+    <string id="sorrowful_1_title_short">Agony in the Garden</string>
+    <string id="sorrowful_2_title_short">The Scourging</string>
+    <string id="sorrowful_3_title_short">Crowning with Thorns</string>
+    <string id="sorrowful_4_title_short">Carrying the Cross</string>
+    <string id="sorrowful_5_title_short">The Crucifixion</string>
+
+    <string id="glorious_1_title_short">The Resurrection</string>
+    <string id="glorious_2_title_short">The Ascension</string>
+    <string id="glorious_3_title_short">Pentecost</string>
+    <string id="glorious_4_title_short">The Assumption</string>
+    <string id="glorious_5_title_short">Coronation of Mary</string>
+
+    <string id="luminous_1_title_short">Baptism of the Lord</string>
+    <string id="luminous_2_title_short">Wedding at Cana</string>
+    <string id="luminous_3_title_short">Kingdom Proclaimed</string>
+    <string id="luminous_4_title_short">The Transfiguration</string>
+    <string id="luminous_5_title_short">Institution of Eucharist</string>
 </strings>

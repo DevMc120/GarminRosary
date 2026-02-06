@@ -1,0 +1,15 @@
+<strings>
+    <!-- Instinct 2 specific overrides for long titles to prevent 3-line wrapping -->
+    <!-- Joyeux -->
+    <string id="joyful_5_title_long">Recouvrement au Temple</string>
+    
+    <!-- Douloureux -->
+    <string id="sorrowful_3_title_long">Couronnement d'épines</string>
+    <string id="sorrowful_4_title_long">Portement de Croix</string>
+    
+    <!-- Glorieux -->
+    <string id="glorious_5_title">Couronnement de Marie</string>
+    
+    <!-- Lumineux -->
+    <string id="luminous_5_title_long">Institution Eucharistie</string>
+</strings>

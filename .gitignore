@@ -16,8 +16,10 @@ mir/
 .vscode/
 *.code-workspace
 
-# Package (optional - uncomment to exclude the final .iq package)
-# *.iq
+# Package
+*.iq
+*.der
+developer_key*
 
 # OS generated files
 .DS_Store

@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Różaniec</string>
-    <string id="AppVersion">1.1.1</string>
+    <string id="AppVersion">1.3.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Zrestartuj</string>
@@ -12,6 +12,21 @@
     <string id="menu_luminous">Tajemnice Światła</string>
     <string id="menu_rosary">Różaniec (15 tajemnic)</string>
     <string id="MysteryAuto">Tajemnice Dnia</string>
+    <string id="menu_auto_meditation">Auto-medytacja</string>
+    <string id="menu_help">Pomoc / Sterowanie</string>
+    <string id="help_text">STEROWANIE
+
+[PRZYCISKI]
+Select: Dalej
+Przytrzymaj Select: Czytaj
+Góra/Dół: Przewiń
+Menu: Opcje
+Wstecz: Wyjdź
+
+[DOTYK]
+Dotknij: Dalej
+Swipe Góra: Czytaj
+Swipe Dół: Wstecz</string>
     
     <!-- Short versions for small screens (FR55, etc.) -->
     <string id="menu_joyful_short">Tajem. Radosne</string>
@@ -81,11 +96,124 @@
     <string id="luminous_1_title">Chrzest w Jordanie</string>
     <string id="luminous_1_fruit">Wierność przyrzeczeniom</string>
     <string id="luminous_2_title">Wesele w Kanie Galilejskiej</string>
-    <string id="luminous_2_fruit">Zaufanie</string>
+    <string id="luminous_2_fruit">Przez Maryję do Jezusa</string>
     <string id="luminous_3_title">Głoszenie Królestwa Bożego</string>
     <string id="luminous_3_fruit">Nawrócenie</string>
     <string id="luminous_4_title">Przemienienie na górze Tabor</string>
     <string id="luminous_4_fruit">Pragnienie świętości</string>
     <string id="luminous_5_title">Ustanowienie Eucharystii</string>
     <string id="luminous_5_fruit">Miłość eucharystyczna</string>
+
+    <!-- Menu Meditation -->
+    <string id="menu_meditation">Rozważanie</string>
+    <string id="menu_meditation_short">Rozważ.</string>
+
+    <!-- Meditation Texts -->
+    <string id="hint_scroll">Przewiń</string>
+    <string id="hint_more">Więcej</string>
+    <string id="hint_up">Góra</string>
+    <string id="hint_back">Wstecz</string>
+    <string id="hint_close">Dotknij lub WRÓĆ</string>
+    <string id="hint_tap_close">Zamknij</string>
+    <string id="label_fruit">Owoc:</string>
+    <string id="joyful_1_meditation">W ciszy Maryja mówi "Fiat". Stwórca staje się stworzeniem. Prośmy o łaskę całkowitego oddania się Bogu. (Łk 1, 38)</string>
+    <string id="joyful_2_meditation">Niosąc Słowo, Maryja biegnie do Elżbiety. Nieśmy Chrystusa innym nie wielosłowiem, lecz radością promiennej miłości. (Łk 1, 39)</string>
+    <string id="joyful_3_meditation">Król Wszechświata rodzi się w stajni. Staje się ubogi, by nas ubogacić. Oderwijmy serce od dóbr ziemskich, by przyjąć prawdziwy Skarb. (Łk 2, 7)</string>
+    <string id="joyful_4_meditation">Symeon rozpoznaje Światło narodów. Ofiarujmy się Panu, abyśmy byli oczyszczeni i całkowicie poświęceni Jego służbie. (Łk 2, 22)</string>
+    <string id="joyful_5_meditation">Jezus naucza o absolutnym pierwszeństwie Ojca. Niech utrata Jego obecności będzie dla nas nie do zniesienia; szukajmy Go w świątyni naszego serca. (Łk 2, 49)</string>
+
+    <string id="sorrowful_1_meditation">W obliczu grzechu Jezus poci się krwią. "Nie moja wola, lecz Twoja". Złączmy nasze lęki z Jego ofiarą i mówmy Bogu "Tak". (Łk 22, 42)</string>
+    <string id="sorrowful_2_meditation">Niewinny Baranek biczowany za grzechy cielesne. Nie pobłażajmy ciału, lecz łączmy nasze cierpienia z Jego ranami. (Iz 53, 5)</string>
+    <string id="sorrowful_3_meditation">Król Królów ukoronowany szyderstwem. Pokutuje za naszą pychę. Przyjmujmy upokorzenia z pokorą, aby On królował w naszych myślach. (Mt 27, 29)</string>
+    <string id="sorrowful_4_meditation">Jezus obejmuje Krzyż zbawienia. Nie odrzucajmy naszych codziennych krzyży; niesione z Nim, stają się kluczem do Nieba. (Łk 23, 26)</string>
+    <string id="sorrowful_5_meditation">Z Krzyża daje nam wszystko: przebaczenie i Matkę. Nie żyjmy już dla siebie, lecz dla Tego, który za nas umarł. (J 19, 26)</string>
+
+    <string id="glorious_1_meditation">Grób jest pusty, śmierć pokonana. Niech światło Paschy rozproszy ciemności: jeśli z Nim umieramy, z Nim żyć będziemy na wieki. (Mt 28, 6)</string>
+    <string id="glorious_2_meditation">Jezus wraca do Ojca, by przygotować nam miejsce. Wznieśmy serca: nasza prawdziwa ojczyzna jest w Niebie, nie na ziemi. (Dz 1, 9)</string>
+    <string id="glorious_3_meditation">Zstępuje Ogień Ducha. Przemienia lęk w męstwo. Przyjdź Duchu Święty, rozpal w nas Miłość i uczyń nas gorliwymi świadkami. (Dz 2, 4)</string>
+    <string id="glorious_4_meditation">Matka Boża z ciałem i duszą wzięta do chwały. To obraz tego, czym będziemy. Prośmy Ją o pomoc w godzinę naszej śmierci. (Tradycja)</string>
+    <string id="glorious_5_meditation">Maryja Królową i Pośredniczką łask. Zaufajmy Jej matczynej opiece: Ona zaprowadzi nas bezpiecznie do tronu Syna. (Ap 12, 1)</string>
+
+    <string id="luminous_1_meditation">Niewinny zstępuje w wody. Niebo się otwiera. Odnówmy łaskę naszego Chrztu: jesteśmy dziećmi Boga, wezwanymi do słuchania Jezusa. (Mt 3, 17)</string>
+    <string id="luminous_2_meditation">Na prośbę Maryi Jezus przemienia wodę w wino. Ufając Jej wstawiennictwu ("Zróbcie wszystko..."), powierzmy Chrystusowi nasze braki. (J 2, 5)</string>
+    <string id="luminous_3_meditation">Królestwo jest tu. Przyjmijmy Jego Słowo prawdy, które wyzwala, wyrzekając się grzechu, by żyć Błogosławieństwami. (Mk 1, 15)</string>
+    <string id="luminous_4_meditation">Chwała Boga jaśnieje na ludzkim obliczu Chrystusa. Utkwijmy wzrok w Jego świetlistym Obliczu, by przejść próby wiary z nadzieją. (Mt 17, 2)</string>
+    <string id="luminous_5_meditation">"To jest Ciało moje". Jezus staje się pokarmem, by trwać w nas. Czerpmy z Eucharystii siłę, by kochać tak, jak On umiłował. (Łk 22, 19)</string>
+
+    <string id="joyful_1_title_long">Zwiastowanie</string>
+    <string id="joyful_1_fruit_long">Pokora</string>
+    <string id="joyful_2_title_long">Nawiedzenie św. Elżbiety</string>
+    <string id="joyful_2_fruit_long">Miłość bliźniego</string>
+    <string id="joyful_3_title_long">Narodzenie Pana Jezusa</string>
+    <string id="joyful_3_fruit_long">Ubóstwo</string>
+    <!-- joyful_4_title_long is defined below -->
+    <string id="joyful_4_fruit_long">Posłuszeństwo</string>
+    <string id="joyful_5_title_long">Odnalezienie w Świątyni</string>
+    <string id="joyful_5_title_medium">Odnalezienie w Świątyni</string>
+    <string id="joyful_5_fruit_long">Szukanie Boga</string>
+
+    <string id="sorrowful_1_title_long">Modlitwa w Ogrójcu</string>
+    <string id="sorrowful_1_fruit_long">Żal za grzechy</string>
+    <string id="sorrowful_2_title_long">Biczowanie</string>
+    <string id="sorrowful_2_fruit_long">Panowanie nad zmysłami</string>
+    <string id="sorrowful_3_title_long">Cierniem ukoronowanie</string>
+    <string id="sorrowful_3_title_medium">Cierniem ukoronowanie</string>
+    <string id="sorrowful_3_fruit_long">Panowanie nad myślami</string>
+    <string id="sorrowful_4_title_long">Dźwiganie Krzyża</string>
+    <string id="sorrowful_4_fruit_long">Cierpliwość</string>
+    <string id="sorrowful_5_title_long">Ukrzyżowanie</string>
+    <string id="sorrowful_5_fruit_long">Miłość do Boga</string>
+    
+    <string id="glorious_1_title_long">Zmartwychwstanie</string>
+    <string id="glorious_1_title_medium">Zmartwych- wstanie</string>
+    <string id="glorious_1_fruit_long">Wiara</string>
+    <string id="glorious_2_title_long">Wniebowstąpienie</string>
+    <string id="glorious_2_title_medium">Wniebo- wstąpienie</string>
+    <string id="glorious_2_fruit_long">Nadzieja</string>
+    <string id="glorious_3_title_long">Zesłanie Ducha Świętego</string>
+    <string id="glorious_3_fruit_long">Miłość i gorliwość</string>
+    <string id="glorious_4_title_long">Wniebowzięcie NMP</string>
+    <string id="glorious_4_fruit_long">Łaska dobrej śmierci</string>
+    <string id="glorious_5_title_long">Ukoronowanie NMP</string>
+    <string id="glorious_5_title_medium">Ukoronowanie NMP</string>
+    <string id="glorious_5_fruit_long">Ufność w Maryi</string>
+    
+    <string id="luminous_1_title_long">Chrzest Pana Jezusa</string>
+    <string id="luminous_1_fruit_long">Wierność łasce Chrztu</string>
+    <string id="luminous_2_title_long">Cud w Kanie Galilejskiej</string>
+    <string id="luminous_2_fruit_long">Zaufanie</string>
+    <string id="luminous_3_title_long">Głoszenie Królestwa</string>
+    <string id="luminous_3_fruit_long">Nawrócenie</string>
+    <string id="luminous_4_title_long">Przemienienie na górze Tabor</string>
+    <string id="luminous_4_fruit_long">Pragnienie świętości</string>
+    <!-- luminous_5_title_long is defined below -->
+    <string id="luminous_5_fruit_long">Adoracja</string>
+
+    <!-- Long Titles -->
+    <string id="joyful_4_title_long">Ofiarowanie w Świątyni</string>
+    <string id="luminous_5_title_long">Ustanowienie Eucharystii</string>
+    <!-- Short Titles (Polish) -->
+    <string id="joyful_1_title_short">Zwiastowanie</string>
+    <string id="joyful_2_title_short">Nawiedzenie</string>
+    <string id="joyful_3_title_short">Narodzenie</string>
+    <string id="joyful_4_title_short">Ofiarowanie w Świątyni</string>
+    <string id="joyful_5_title_short">Odnalezienie w Świątyni</string>
+
+    <string id="sorrowful_1_title_short">W Ogrójcu</string>
+    <string id="sorrowful_2_title_short">Biczowanie</string>
+    <string id="sorrowful_3_title_short">Cierniem ukoron.</string>
+    <string id="sorrowful_4_title_short">Dźwiganie Krzyża</string>
+    <string id="sorrowful_5_title_short">Ukrzyżowanie</string>
+
+    <string id="glorious_1_title_short">Zmartwychwstanie</string>
+    <string id="glorious_2_title_short">Wniebowstąpienie</string>
+    <string id="glorious_3_title_short">Zesłanie Ducha</string>
+    <string id="glorious_4_title_short">Wniebowzięcie</string>
+    <string id="glorious_5_title_short">Ukoronowanie</string>
+
+    <string id="luminous_1_title_short">Chrzest</string>
+    <string id="luminous_2_title_short">Wesele w Kanie</string>
+    <string id="luminous_3_title_short">Głoszenie Królestwa</string>
+    <string id="luminous_4_title_short">Przemienienie</string>
+    <string id="luminous_5_title_short">Ustanowienie Eucharystii</string>
 </strings>

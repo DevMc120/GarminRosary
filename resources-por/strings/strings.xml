@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosário</string>
-    <string id="AppVersion">1.1.1</string>
+    <string id="AppVersion">1.3.0</string>
 
     <!-- Menu -->
     <string id="menu_restart">Reiniciar</string>
@@ -12,6 +12,7 @@
     <string id="menu_luminous">Mistérios Luminosos</string>
     <string id="menu_rosary">Rosário (15 dezenas)</string>
     <string id="MysteryAuto">Mistérios do dia</string>
+    <string id="menu_auto_meditation">Auto-meditação</string>
     
     <!-- Short versions for small screens (FR55, etc.) -->
     <string id="menu_joyful_short">Mist. Gozosos</string>
@@ -88,4 +89,130 @@
     <string id="luminous_4_fruit">Desejo de Santidade</string>
     <string id="luminous_5_title">A Eucaristia</string>
     <string id="luminous_5_fruit">Amor à Eucaristia</string>
+
+    <!-- Long Titles -->
+    <string id="joyful_4_title_long">A Apresentação no Templo</string>
+    <string id="luminous_5_title_long">A Instituição da Eucaristia</string>
+
+    <string id="joyful_1_title_long">A Anunciação</string>
+    <string id="joyful_1_fruit_long">Humildade</string>
+    <string id="joyful_2_title_long">A Visitação de Maria</string>
+    <string id="joyful_2_fruit_long">Caridade fraterna</string>
+    <string id="joyful_3_title_long">O Nascimento</string>
+    <string id="joyful_3_fruit_long">Pobreza de Espírito</string>
+    <string id="joyful_4_fruit_long">Obediência</string>
+    <string id="joyful_5_title_long">O Encontro no Templo</string>
+    <string id="joyful_5_title_medium">Encontro no Templo</string>
+    <string id="joyful_5_fruit_long">Busca de Deus</string>
+
+    <string id="sorrowful_1_title_long">A Agonia no Horto</string>
+    <string id="sorrowful_1_fruit_long">Contrição</string>
+    <string id="sorrowful_2_title_long">A Flagelação</string>
+    <string id="sorrowful_2_fruit_long">Mortificação dos sentidos</string>
+    <string id="sorrowful_3_title_long">A Coroação de Espinhos</string>
+    <string id="sorrowful_3_title_medium">Coroação de Espinhos</string>
+    <string id="sorrowful_3_fruit_long">Mortificação do espírito</string>
+    <string id="sorrowful_4_title_long">Caminho do Calvário</string>
+    <string id="sorrowful_4_fruit_long">Paciência</string>
+    <string id="sorrowful_5_title_long">A Crucificação</string>
+    <string id="sorrowful_5_fruit_long">Amor a Deus</string>
+    
+    <string id="glorious_1_title_long">A Ressurreição</string>
+    <string id="glorious_1_title_medium">A Ressurreição</string>
+    <string id="glorious_1_fruit_long">Fé</string>
+    <string id="glorious_2_title_long">A Ascensão</string>
+    <string id="glorious_2_title_medium">A Ascensão</string>
+    <string id="glorious_2_fruit_long">Esperança</string>
+    <string id="glorious_3_title_long">Pentecostes</string>
+    <string id="glorious_3_fruit_long">Caridade e zelo</string>
+    <string id="glorious_4_title_long">A Assunção</string>
+    <string id="glorious_4_fruit_long">Graça da Boa Morte</string>
+    <string id="glorious_5_title_long">A Coroação de Maria</string>
+    <string id="glorious_5_title_medium">Coroação de Maria</string>
+    <string id="glorious_5_fruit_long">Confiança em Maria</string>
+    
+    <string id="luminous_1_title_long">O Batismo de Jesus</string>
+    <string id="luminous_1_fruit_long">Fidelidade ao Batismo</string>
+    <string id="luminous_2_title_long">As Bodas de Caná</string>
+    <string id="luminous_2_fruit_long">A Jesus por Maria</string>
+    <string id="luminous_3_title_long">O Anúncio do Reino</string>
+    <string id="luminous_3_fruit_long">Conversão</string>
+    <string id="luminous_4_title_long">A Transfiguração</string>
+    <string id="luminous_4_fruit_long">Desejo de Santidade</string>
+    <string id="luminous_5_fruit_long">Amor à Eucaristia</string>
+
+    <!-- Menu Meditation -->
+    <string id="menu_meditation">Meditação</string>
+    <string id="menu_auto_meditation">Meditação Auto</string>
+    <string id="menu_help">Ajuda / Controles</string>
+    <string id="help_text">CONTROLES
+
+[BOTÕES]
+Select: Próx. Oração
+Segurar Select: Ler
+Cima/Baixo: Navegar
+Menu: Opções
+Voltar: Sair
+
+[TOQUE]
+Toque: Próx. Oração
+Swipe Cima: Ler Texto
+Swipe Baixo: Anterior</string>
+    <string id="menu_meditation_short">Medit.</string>
+
+    <!-- Meditation Texts -->
+    <string id="hint_scroll">Rolar</string>
+    <string id="hint_more">Mais</string>
+    <string id="hint_up">Topo</string>
+    <string id="hint_back">Voltar</string>
+    <string id="hint_close">Toque ou VOLTAR</string>
+    <string id="hint_tap_close">Toque para fechar</string>
+    <string id="label_fruit">Fruto:</string>
+<string id="joyful_1_meditation">No silêncio, Maria acolhe a Palavra. Pelo seu "Fiat", o Criador faz-se criatura. Peçamos a graça de nos abandonarmos totalmente a Deus. (Lc 1, 38)</string>
+    <string id="joyful_2_meditation">Levando o Verbo, Maria corre para Isabel. Levemos Cristo aos outros, não com muitas palavras, mas com a alegria de uma caridade radiante. (Lc 1, 39)</string>
+    <string id="joyful_3_meditation">O Rei do Universo nasce numa gruta. Faz-se pobre para nos enriquecer. Desapeguemos o coração dos bens terrenos para acolher o verdadeiro Tesouro. (Lc 2, 7)</string>
+    <string id="joyful_4_meditation">Simeão reconhece a Luz das nações. Ofereçamo-nos ao Senhor, para sermos purificados e consagrados inteiramente ao seu serviço. (Lc 2, 22)</string>
+    <string id="joyful_5_meditation">Jesus ensina o primado absoluto do Pai. Que a perda da Sua presença nos seja insuportável; busquemo-Lo sempre no templo do nosso coração. (Lc 2, 49)</string>
+
+    <string id="sorrowful_1_meditation">Diante do pecado, Jesus transpira sangue. "Não a minha vontade, mas a Tua". Unamos as nossas angústias à sua oferta perfeita e digamos "Sim" a Deus. (Lc 22, 42)</string>
+    <string id="sorrowful_2_meditation">O Cordeiro inocente é flagelado pelos nossos pecados carnais. Não sejamos complacentes com o corpo, mas unamos os nossos sofrimentos às suas chagas. (Is 53, 5)</string>
+    <string id="sorrowful_3_meditation">O Rei dos Reis é coroado de escárnios. Ele expia o nosso orgulho. Aceitemos as humilhações com humildade, para que Ele reine nos nossos pensamentos. (Mt 27, 29)</string>
+    <string id="sorrowful_4_meditation">Jesus abraça a Cruz da salvação. Não recusemos as nossas cruzes diárias; levadas com Ele, tornam-se a chave que abre o Céu. (Lc 23, 26)</string>
+    <string id="sorrowful_5_meditation">Da Cruz, entrega-nos tudo: o perdão e a sua Mãe. Não vivamos mais para nós mesmos, mas para Aquele que morreu por nós. (Jo 19, 26)</string>
+
+    <string id="glorious_1_meditation">O sepulcro está vazio, a morte foi vencida. Que a luz da Páscoa disperse as trevas: se morrermos com Ele, viveremos com Ele para sempre. (Mt 28, 6)</string>
+    <string id="glorious_2_meditation">Jesus volta para o Pai para nos preparar um lugar. Elevemos os corações: a nossa verdadeira pátria é no Céu, não nesta terra. (At 1, 9)</string>
+    <string id="glorious_3_meditation">O Fogo do Espírito desce. Transforma o medo em audácia. Vinde Espírito Santo, acendei em nós a Vossa caridade e tornai-nos testemunhas ardentes. (At 2, 4)</string>
+    <string id="glorious_4_meditation">A Mãe de Deus é elevada à glória em corpo e alma. É a imagem do que seremos. Peçamos-lhe que nos assista na hora da nossa morte. (Tradição)</string>
+    <string id="glorious_5_meditation">Maria é Rainha e Medianeira de todas as graças. Confiemos na sua proteção materna: ela conduzir-nos-á seguros ao trono do seu Filho. (Ap 12, 1)</string>
+
+    <string id="luminous_1_meditation">O Inocente desce às águas. O Céu abre-se. Renovemos a graça do nosso Batismo: somos filhos de Deus, chamados a escutar Jesus. (Mt 3, 17)</string>
+    <string id="luminous_2_meditation">A pedido de Maria, Jesus transforma a água em vinho. Confiando na sua intercessão ("Fazei o que Ele vos disser"), entreguemos as nossas carências a Cristo. (Jo 2, 5)</string>
+    <string id="luminous_3_meditation">O Reino está aqui. Acolhamos a sua Palavra de verdade que liberta, renunciando ao pecado para viver segundo as Bem-aventuranças. (Mc 1, 15)</string>
+    <string id="luminous_4_meditation">A glória de Deus transparece na humanidade de Cristo. Fixemos o olhar no seu Rosto luminoso para atravessar as provas da fé com esperança. (Mt 17, 2)</string>
+    <string id="luminous_5_meditation">"Isto é o meu corpo entregue por vós." Jesus faz-se alimento para permanecer em nós. Busquemos na Eucaristia a força de amar como Ele amou. (Lc 22, 19)</string>
+    <!-- Short Titles (Portuguese) -->
+    <string id="joyful_1_title_short">A Anunciação</string>
+    <string id="joyful_2_title_short">A Visitação</string>
+    <string id="joyful_3_title_short">O Nascimento</string>
+    <string id="joyful_4_title_short">Apresentação no Templo</string>
+    <string id="joyful_5_title_short">Encontro no Templo</string>
+
+    <string id="sorrowful_1_title_short">Agonia no Horto</string>
+    <string id="sorrowful_2_title_short">A Flagelação</string>
+    <string id="sorrowful_3_title_short">Coroação Espinhos</string>
+    <string id="sorrowful_4_title_short">Caminho Calvário</string>
+    <string id="sorrowful_5_title_short">A Crucificação</string>
+
+    <string id="glorious_1_title_short">A Ressurreição</string>
+    <string id="glorious_2_title_short">A Ascensão</string>
+    <string id="glorious_3_title_short">Pentecostes</string>
+    <string id="glorious_4_title_short">A Assunção</string>
+    <string id="glorious_5_title_short">Coroação de Maria</string>
+
+    <string id="luminous_1_title_short">O Batismo de Jesus</string>
+    <string id="luminous_2_title_short">Bodas de Caná</string>
+    <string id="luminous_3_title_short">Anúncio do Reino</string>
+    <string id="luminous_4_title_short">A Transfiguração</string>
+    <string id="luminous_5_title_short">Instituição Eucaristia</string>
 </strings>

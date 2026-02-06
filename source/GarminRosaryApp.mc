@@ -13,13 +13,11 @@ class GarminRosaryApp extends Application.AppBase {
 
     //! Appelé au démarrage de l'application
     function onStart(state as Dictionary?) as Void {
-        // Initialisation du modèle
         _model = new RosaryModel();
     }
 
     //! Appelé à l'arrêt de l'application
     function onStop(state as Dictionary?) as Void {
-        // Sauvegarde de l'état
         if (_model != null) {
             _model.saveState();
         }

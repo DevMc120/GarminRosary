@@ -8,6 +8,10 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
 
     private var _model as RosaryModel;
     private var _view as GarminRosaryView;
+    
+    private var _selectPressTime as Number = 0;
+    private var _isKeyPressed as Boolean = false; 
+    private const LONG_PRESS_THRESHOLD = 1000; 
 
     function initialize(model as RosaryModel, view as GarminRosaryView) {
         BehaviorDelegate.initialize();
@@ -15,10 +19,42 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         _view = view;
     }
 
-    //! Bouton Select (généralement haut-droite) - Avance d'un grain
-    function onSelect() as Boolean {
-        advanceBead();
-        return true;
+
+
+    //! Détection de l'appui sur un bouton (pour Long Press)
+    function onKeyPressed(keyEvent as WatchUi.KeyEvent) as Boolean {
+        var key = keyEvent.getKey();
+        
+        if (key == WatchUi.KEY_ENTER || key == WatchUi.KEY_START) {
+            _selectPressTime = System.getTimer();
+            _isKeyPressed = true; 
+            return true; 
+        }
+        
+        return false;
+    }
+
+    //! Détection du relâchement d'un bouton (pour différencier court/long)
+    function onKeyReleased(keyEvent as WatchUi.KeyEvent) as Boolean {
+        var key = keyEvent.getKey();
+        
+        if (key == WatchUi.KEY_ENTER || key == WatchUi.KEY_START) {
+            if (!_isKeyPressed) {
+                return false;
+            }
+            _isKeyPressed = false; 
+
+            var pressDuration = System.getTimer() - _selectPressTime;
+            
+            if (pressDuration >= LONG_PRESS_THRESHOLD) {
+                openMeditationView();
+            } else {
+                advanceBead();
+            }
+            return true;
+        }
+        
+        return false;
     }
 
     //! Tap sur l'écran tactile - Avance d'un grain
@@ -31,7 +67,7 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
     function onKey(keyEvent as WatchUi.KeyEvent) as Boolean {
         var key = keyEvent.getKey();
         
-        if (key == WatchUi.KEY_UP || key == WatchUi.KEY_ENTER) {
+        if (key == WatchUi.KEY_UP) {
             advanceBead();
             return true;
         } else if (key == WatchUi.KEY_DOWN) {
@@ -42,14 +78,15 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         return false;
     }
 
-    //! Swipe vers le haut - Avance
+    //! Swipe - Navigation verticale
+    //! TAP = avancer (principal), SWIPE_UP = méditation, SWIPE_DOWN = reculer
     function onSwipe(swipeEvent as WatchUi.SwipeEvent) as Boolean {
         var direction = swipeEvent.getDirection();
         
-        if (direction == WatchUi.SWIPE_UP || direction == WatchUi.SWIPE_RIGHT) {
-            advanceBead();
+        if (direction == WatchUi.SWIPE_UP) {
+            openMeditationView();
             return true;
-        } else if (direction == WatchUi.SWIPE_DOWN || direction == WatchUi.SWIPE_LEFT) {
+        } else if (direction == WatchUi.SWIPE_DOWN) {
             goBack();
             return true;
         }
@@ -57,20 +94,37 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         return false;
     }
 
+    //! Ouvre la vue de méditation
+    private function openMeditationView() as Void {
+        if (_model.phase < 1 || _model.phase > 5) {
+            return;
+        }
+
+        var meditationView = new MeditationView(_model);
+        var meditationDelegate = new MeditationDelegate(meditationView);
+        WatchUi.pushView(meditationView, meditationDelegate, WatchUi.SLIDE_LEFT);
+    }
+
     //! Avance d'un grain avec vibration appropriée
     private function advanceBead() as Void {
+        var previousPhase = _model.phase;
+        
         var state = _model.next();
         
-        // Mise à jour de la vue avec le nouvel état
         _view.setCurrentState(state);
         
-        // Vibration selon l'état
         triggerVibration(state);
         
-        // Sauvegarde de l'état
         _model.saveState();
         
-        // Demande rafraîchissement de l'écran
+        if (_model.isAutoMeditationEnabled()) {
+            var currentPhase = _model.phase;
+            if (currentPhase >= 1 && currentPhase <= 5 && _model.beadInPhase == 1 && 
+                previousPhase != currentPhase) {
+                openMeditationView();
+            }
+        }
+        
         WatchUi.requestUpdate();
     }
 
@@ -78,7 +132,6 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
     private function goBack() as Void {
         _model.previous();
         
-        // Mise à jour de la vue avec le nouvel état
         var state = _model.getCurrentState();
         _view.setCurrentState(state);
         
@@ -86,7 +139,6 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.requestUpdate();
     }
 
-    //! Déclenche la vibration appropriée
     private function triggerVibration(state as Number) as Void {
         if (!(Attention has :vibrate)) {
             return;
@@ -154,22 +206,19 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
 
     //! Bouton Menu - Affiche le menu
     function onMenu() as Boolean {
-        // Detect screen size to choose appropriate string length
         var settings = System.getDeviceSettings();
         var screenWidth = settings.screenWidth;
         var screenHeight = settings.screenHeight;
         var isRectangular = (screenHeight > screenWidth * 1.1);
-        var useShortStrings = (screenWidth < 220) || isRectangular; // FR55 (small) OR Venu Sq (rectangular)
+        var useShortStrings = (screenWidth <= 240) || isRectangular;
         
-        // On small screens, don't show title (it gets truncated)
         var title = useShortStrings ? null : WatchUi.loadResource(Rez.Strings.AppName) as String;
         var menu = new WatchUi.Menu2({:title=>title});
         
-        // Menu Items with conditional string selection
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_restart) as String, null, "restart", null));
+        
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.MysteryAuto_short : Rez.Strings.MysteryAuto) as String, null, "mystery_auto", null));
         
-        // Nouvelle option : Rosaire Complet (3 mystères)
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_rosary_short : Rez.Strings.menu_rosary) as String, null, "start_rosary", null));
         
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_joyful_short : Rez.Strings.menu_joyful) as String, null, "mystery_joyful", null));
@@ -177,14 +226,21 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_glorious_short : Rez.Strings.menu_glorious) as String, null, "mystery_glorious", null));
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_luminous_short : Rez.Strings.menu_luminous) as String, null, "mystery_luminous", null));
         
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_meditation_short : Rez.Strings.menu_meditation) as String, null, "meditations", null));
+        
+        var autoMedLabel = WatchUi.loadResource(Rez.Strings.menu_auto_meditation) as String;
+        var autoMedEnabled = _model.isAutoMeditationEnabled();
+        menu.addItem(new WatchUi.ToggleMenuItem(autoMedLabel, null, "toggle_auto_meditation", autoMedEnabled, null));
+        
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_help) as String, null, "help", null));
+        
         WatchUi.pushView(menu, new GarminRosaryMenuDelegate(_model), WatchUi.SLIDE_UP);
         return true;
     }
 
     //! Bouton Retour - Confirmation de sortie
     function onBack() as Boolean {
-        // Sauvegarde avant de quitter
         _model.saveState();
-        return false; // Laisse le comportement par défaut (quitter)
+        return false;
     }
 }
