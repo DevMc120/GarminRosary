@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Różaniec</string>
-    <string id="AppVersion">1.3.0</string>
+    <string id="AppVersion">1.3.1</string>
 
     <!-- Menu -->
     <string id="menu_restart">Zrestartuj</string>
@@ -105,7 +105,7 @@ Swipe Dół: Wstecz</string>
     <string id="luminous_5_fruit">Miłość eucharystyczna</string>
 
     <!-- Menu Meditation -->
-    <string id="menu_meditation">Rozważanie</string>
+    <string id="menu_meditation">Medytacje</string>
     <string id="menu_meditation_short">Rozważ.</string>
 
     <!-- Meditation Texts -->

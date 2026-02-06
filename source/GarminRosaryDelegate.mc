@@ -210,7 +210,7 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         var screenWidth = settings.screenWidth;
         var screenHeight = settings.screenHeight;
         var isRectangular = (screenHeight > screenWidth * 1.1);
-        var useShortStrings = (screenWidth <= 240) || isRectangular;
+        var useShortStrings = (screenWidth < 240) || isRectangular;
         
         var title = useShortStrings ? null : WatchUi.loadResource(Rez.Strings.AppName) as String;
         var menu = new WatchUi.Menu2({:title=>title});
