@@ -63,51 +63,139 @@ class MeditationViewStatic extends WatchUi.View {
         var centerX = _screenWidth / 2;
 
         var title = getMysteryTitle();
-        var fruit = getMysteryFruit();
+        var fruitLabel = WatchUi.loadResource(Rez.Strings.label_fruit) as String;
+        var fruit = fruitLabel + " " + getMysteryFruit();
         var meditation = getMeditationText();
 
-        var titleY = _isRectangular ? 5 : (_isInstinct2 ? 25 : 10);
-        var fruitY = titleY + 30;
-        var meditationY = fruitY + 20;
+        // --- FONTS ---
+        var titleFont = Graphics.FONT_TINY;
+        var fruitFont = Graphics.FONT_XTINY;
+        var meditFont = Graphics.FONT_XTINY;
+        var hintFont = Graphics.FONT_XTINY;
+
+        // --- LAYOUT CONSTANTS ---
+        var PAD_TOP_ROUND = 25;
+        var PAD_TOP_RECT = 5;
+        var PAD_TOP_INSTINCT = 35;
+        var PAD_BTM_ROUND = 15;
+        var PAD_BTM_INSTINCT = 2;
+
+        var topPadding = _isRectangular ? PAD_TOP_RECT : (_isInstinct2 ? PAD_TOP_INSTINCT : PAD_TOP_ROUND);
+        var bottomPadding = _isInstinct2 ? PAD_BTM_INSTINCT : PAD_BTM_ROUND;
+
+        // --- TITLE (sticky at top) ---
+        var titleY = topPadding;
+        var titleLineHeight = dc.getFontHeight(titleFont);
+        var maxTitleWidth = (_screenWidth * 0.65).toNumber();
+        var titleLines = wrapTextArray(dc, splitString(title, ' '), maxTitleWidth, titleFont);
 
         dc.setColor(_colorGold, Graphics.COLOR_TRANSPARENT);
-        var titleFont = _isInstinct2 ? Graphics.FONT_SMALL : Graphics.FONT_MEDIUM;
-        dc.drawText(centerX, titleY, titleFont, title, Graphics.TEXT_JUSTIFY_CENTER);
+        for (var i = 0; i < titleLines.size(); i++) {
+            dc.drawText(centerX, titleY + (i * titleLineHeight), titleFont, titleLines[i], Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        var titleBlockHeight = titleLines.size() * titleLineHeight;
 
-        dc.setColor(_colorTextMain, Graphics.COLOR_TRANSPARENT);
-        var fruitFont = _isInstinct2 ? Graphics.FONT_XTINY : Graphics.FONT_SMALL;
-        var fruitLabel = WatchUi.loadResource(Rez.Strings.label_fruit) as String;
-        dc.drawText(centerX, fruitY, fruitFont, fruitLabel + " " + fruit, Graphics.TEXT_JUSTIFY_CENTER);
-        if (!_isInstinct2) {
-            dc.setColor(_colorTextDim, Graphics.COLOR_TRANSPARENT);
-            var meditFont = Graphics.FONT_TINY;
-            var maxWidth = _screenWidth - 40;
-            drawWrappedText(dc, meditation, centerX, meditationY, maxWidth, meditFont);
+        // --- SCROLLABLE CONTENT ---
+        var maxFruitWidth = (_screenWidth * 0.75).toNumber();
+        var maxMeditWidth = (_screenWidth * 0.80).toNumber();
+        var fruitLines = wrapTextArray(dc, splitString(fruit, ' '), maxFruitWidth, fruitFont);
+        var meditLines = wrapTextArray(dc, splitString(meditation, ' '), maxMeditWidth, meditFont);
+
+        var separatorIndex = fruitLines.size();
+        _totalLines = fruitLines.size() + 1 + meditLines.size();
+
+        var stdLineHeight = dc.getFontHeight(fruitFont);
+        var textLineHeight = stdLineHeight + 4;
+        var sepItemHeight = _isInstinct2 ? 8 : 10;
+
+        var scrollableTopY = titleY + titleBlockHeight + 2;
+        var hintY = _screenHeight - bottomPadding - dc.getFontHeight(hintFont) + 5;
+        var scrollableBottomY = hintY - 5;
+
+        // --- STICKY SEPARATOR ---
+        var isSticky = (_scrollOffset > separatorIndex);
+        var currentY = scrollableTopY;
+
+        if (isSticky) {
+            dc.setColor(_colorGold, Graphics.COLOR_TRANSPARENT);
+            var lineY = scrollableTopY + (sepItemHeight / 2);
+            dc.drawLine(centerX - 40, lineY, centerX + 40, lineY);
+            currentY += sepItemHeight;
         }
 
-        var bottomY = _screenHeight - (_isInstinct2 ? 20 : 30);
+        // --- DRAW SCROLLABLE ITEMS ---
+        var idx = _scrollOffset;
+        _visibleLines = 0;
+
+        while (currentY < scrollableBottomY && idx < _totalLines) {
+            var itemHeight = textLineHeight;
+
+            if (idx == separatorIndex) {
+                itemHeight = sepItemHeight;
+                if (currentY + itemHeight <= scrollableBottomY + (itemHeight / 2)) {
+                    dc.setColor(_colorGold, Graphics.COLOR_TRANSPARENT);
+                    var lineY = currentY + (itemHeight / 2);
+                    dc.drawLine(centerX - 40, lineY, centerX + 40, lineY);
+                }
+            } else if (idx < separatorIndex) {
+                if (currentY + textLineHeight <= scrollableBottomY) {
+                    dc.setColor(_colorTextDim, Graphics.COLOR_TRANSPARENT);
+                    dc.drawText(centerX, currentY, fruitFont, fruitLines[idx], Graphics.TEXT_JUSTIFY_CENTER);
+                }
+            } else {
+                var mIdx = idx - (separatorIndex + 1);
+                if (mIdx < meditLines.size() && currentY + textLineHeight <= scrollableBottomY) {
+                    dc.setColor(_colorTextMain, Graphics.COLOR_TRANSPARENT);
+                    dc.drawText(centerX, currentY, meditFont, meditLines[mIdx], Graphics.TEXT_JUSTIFY_CENTER);
+                }
+            }
+
+            currentY += itemHeight;
+            if (currentY > scrollableBottomY) { break; }
+            _visibleLines++;
+            idx++;
+        }
+
+        // --- HINT ---
         dc.setColor(_colorTextDim, Graphics.COLOR_TRANSPARENT);
-        var hintFont = Graphics.FONT_XTINY;
-        
-        var hint;
+        var hint = WatchUi.loadResource(Rez.Strings.hint_tap_close) as String;
+
         if (_isInstinct2) {
             hint = WatchUi.loadResource(Rez.Strings.hint_back) as String;
         } else if (_totalLines > _visibleLines) {
-            var strTapClose = WatchUi.loadResource(Rez.Strings.hint_tap_close) as String;
-            if (_scrollOffset > 0 && _scrollOffset + _visibleLines < _totalLines) {
-                var strScroll = WatchUi.loadResource(Rez.Strings.hint_scroll) as String;
-                hint = "↑↓ " + strScroll + " | " + strTapClose;
-            } else if (_scrollOffset == 0) {
-                var strMore = WatchUi.loadResource(Rez.Strings.hint_more) as String;
-                hint = "↓ " + strMore + " | " + strTapClose;
-            } else {
-                var strBack = WatchUi.loadResource(Rez.Strings.hint_back) as String;
-                hint = "↑ " + strBack + " | " + strTapClose;
+            var canScrollUp = (_scrollOffset > 0);
+            var canScrollDown = (_scrollOffset + _visibleLines < _totalLines);
+
+            if (canScrollDown && canScrollUp) {
+                hint = WatchUi.loadResource(Rez.Strings.hint_scroll) as String;
+            } else if (canScrollDown) {
+                hint = WatchUi.loadResource(Rez.Strings.hint_more) as String;
+            } else if (canScrollUp) {
+                hint = WatchUi.loadResource(Rez.Strings.hint_up) as String;
             }
-        } else {
-            hint = WatchUi.loadResource(Rez.Strings.hint_close) as String;
         }
-        dc.drawText(centerX, bottomY, hintFont, hint, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(centerX, hintY, hintFont, hint, Graphics.TEXT_JUSTIFY_CENTER);
+    }
+
+    private function wrapTextArray(dc as Dc, words as Array<String>, maxWidth as Number, font as FontType) as Array<String> {
+        var lines = [] as Array<String>;
+        var currentLine = "";
+
+        for (var i = 0; i < words.size(); i++) {
+            var testLine = currentLine.length() == 0 ? words[i] : currentLine + " " + words[i];
+            var testWidth = dc.getTextWidthInPixels(testLine, font);
+
+            if (testWidth > maxWidth && currentLine.length() > 0) {
+                lines.add(currentLine);
+                currentLine = words[i];
+            } else {
+                currentLine = testLine;
+            }
+        }
+        if (currentLine.length() > 0) {
+            lines.add(currentLine);
+        }
+        return lines;
     }
 
     function scrollDown() as Boolean {
