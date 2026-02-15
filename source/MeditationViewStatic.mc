@@ -200,7 +200,15 @@ class MeditationViewStatic extends WatchUi.View {
 
     function scrollDown() as Boolean {
         if (_scrollOffset + _visibleLines < _totalLines) {
-            _scrollOffset++;
+            var step = (_visibleLines > 2) ? (_visibleLines - 2) : 1;
+            var newOffset = _scrollOffset + step;
+            
+            var maxOffset = _totalLines - _visibleLines;
+            if (newOffset > maxOffset) {
+                newOffset = maxOffset;
+            }
+            
+            _scrollOffset = newOffset;
             WatchUi.requestUpdate();
             return true;
         }
@@ -209,7 +217,14 @@ class MeditationViewStatic extends WatchUi.View {
 
     function scrollUp() as Boolean {
         if (_scrollOffset > 0) {
-            _scrollOffset--;
+            var step = (_visibleLines > 2) ? (_visibleLines - 2) : 1;
+            var newOffset = _scrollOffset - step;
+            
+            if (newOffset < 0) {
+                newOffset = 0;
+            }
+            
+            _scrollOffset = newOffset;
             WatchUi.requestUpdate();
             return true;
         }

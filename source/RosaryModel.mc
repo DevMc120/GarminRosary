@@ -239,7 +239,7 @@ class RosaryModel {
             if (phase > 0) {
                 phase--;
                 if (phase == 0) {
-                    beadInPhase = 8;
+                    beadInPhase = 7;
                 } else {
                     beadInPhase = 12;
                 }
