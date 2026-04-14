@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosenkranz</string>
-    <string id="AppVersion">1.3.3</string>
+    <string id="AppVersion">1.3.6</string>
 
     <!-- Menu -->
     <string id="menu_restart">Neustart</string>
@@ -55,6 +55,11 @@ Swipe Runter: Zurück</string>
     <string id="text_finished">Rosenkranz beendet</string>
     <string id="text_finished_rosary">Ganzer Rosenkranz beendet</string>
     <string id="text_intro">Intro</string>
+    <string id="mode_auto">Auto</string>
+    <string id="mode_manual">Manuell</string>
+    <string id="intro_faith">Glaube</string>
+    <string id="intro_hope">Hoffnung</string>
+    <string id="intro_charity">Liebe</string>
 
     <!-- Joyful Mysteries -->
     <string id="joyful_1_title">Die Verkündigung</string>

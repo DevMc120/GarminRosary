@@ -194,6 +194,23 @@ class GarminRosaryView extends WatchUi.View {
             _model.getMysteryTypeName(), 
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
+        // Indicateur Auto/Manuel (uniquement sur l'écran initial)
+        if (_model.beadInPhase == 0) {
+            dc.setColor(_colorTextDim, Graphics.COLOR_TRANSPARENT);
+            var modeText = "";
+            if (_model.isFullRosary) {
+                modeText = WatchUi.loadResource(Rez.Strings.menu_rosary_short) as String;
+            } else if (_model.isManualMystery) {
+                modeText = WatchUi.loadResource(Rez.Strings.mode_manual) as String;
+            } else {
+                modeText = WatchUi.loadResource(Rez.Strings.mode_auto) as String;
+            }
+            var modeY = _isInstinct2 ? (centerY * 0.88).toNumber() : (centerY * 0.65).toNumber();
+            dc.drawText(centerX, modeY, Graphics.FONT_SYSTEM_XTINY, 
+                modeText, 
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        }
+
         dc.setColor(_colorTextMain, Graphics.COLOR_TRANSPARENT);
         var prayerName = getPrayerName(_currentState);
 
@@ -215,16 +232,28 @@ class GarminRosaryView extends WatchUi.View {
         }
 
         dc.setColor(_colorTextDim, Graphics.COLOR_TRANSPARENT);
-        var introText = WatchUi.loadResource(Rez.Strings.text_intro) as String;
-        var introY = centerY * 1.55;
-        
-        if (_isRectangular) {
-            introY = (_screenHeight * 0.72).toNumber(); 
+        var introText = "";
+        if (_model.beadInPhase == 4) {
+            introText = WatchUi.loadResource(Rez.Strings.intro_faith) as String;
+        } else if (_model.beadInPhase == 5) {
+            introText = WatchUi.loadResource(Rez.Strings.intro_hope) as String;
+        } else if (_model.beadInPhase == 6) {
+            introText = WatchUi.loadResource(Rez.Strings.intro_charity) as String;
+        } else if (_model.beadInPhase <= 3) {
+            introText = WatchUi.loadResource(Rez.Strings.text_intro) as String;
         }
         
-        dc.drawText(centerX, introY, Graphics.FONT_SYSTEM_XTINY, 
-            introText, 
-            Graphics.TEXT_JUSTIFY_CENTER);
+        if (introText.length() > 0) {
+            var introY = centerY * 1.55;
+            
+            if (_isRectangular) {
+                introY = (_screenHeight * 0.72).toNumber(); 
+            }
+            
+            dc.drawText(centerX, introY, Graphics.FONT_SYSTEM_XTINY, 
+                introText, 
+                Graphics.TEXT_JUSTIFY_CENTER);
+        }
     }
     //! Écran Dizaine
     private function drawDecadeScreen(dc as Dc, centerX as Number, centerY as Number) as Void {

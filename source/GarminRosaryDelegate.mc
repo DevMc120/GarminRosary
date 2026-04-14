@@ -217,14 +217,24 @@ class GarminRosaryDelegate extends WatchUi.BehaviorDelegate {
         
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_restart) as String, null, "restart", null));
         
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.MysteryAuto_short : Rez.Strings.MysteryAuto) as String, null, "mystery_auto", null));
+        // Déterminer l'option active pour afficher le checkmark
+        var isAuto = (!_model.isManualMystery && !_model.isFullRosary);
+        var isManualJoyful = (_model.isManualMystery && !_model.isFullRosary && _model.mysteryType == RosaryModel.MYSTERY_JOYFUL);
+        var isManualSorrowful = (_model.isManualMystery && !_model.isFullRosary && _model.mysteryType == RosaryModel.MYSTERY_SORROWFUL);
+        var isManualGlorious = (_model.isManualMystery && !_model.isFullRosary && _model.mysteryType == RosaryModel.MYSTERY_GLORIOUS);
+        var isManualLuminous = (_model.isManualMystery && !_model.isFullRosary && _model.mysteryType == RosaryModel.MYSTERY_LUMINOUS);
+        var isFullRosary = _model.isFullRosary;
         
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_rosary_short : Rez.Strings.menu_rosary) as String, null, "start_rosary", null));
+        var check = "✓";
         
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_joyful_short : Rez.Strings.menu_joyful) as String, null, "mystery_joyful", null));
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_sorrowful_short : Rez.Strings.menu_sorrowful) as String, null, "mystery_sorrowful", null));
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_glorious_short : Rez.Strings.menu_glorious) as String, null, "mystery_glorious", null));
-        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_luminous_short : Rez.Strings.menu_luminous) as String, null, "mystery_luminous", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.MysteryAuto_short : Rez.Strings.MysteryAuto) as String, isAuto ? check : null, "mystery_auto", null));
+        
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_rosary_short : Rez.Strings.menu_rosary) as String, isFullRosary ? check : null, "start_rosary", null));
+        
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_joyful_short : Rez.Strings.menu_joyful) as String, isManualJoyful ? check : null, "mystery_joyful", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_sorrowful_short : Rez.Strings.menu_sorrowful) as String, isManualSorrowful ? check : null, "mystery_sorrowful", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_glorious_short : Rez.Strings.menu_glorious) as String, isManualGlorious ? check : null, "mystery_glorious", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_luminous_short : Rez.Strings.menu_luminous) as String, isManualLuminous ? check : null, "mystery_luminous", null));
         
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(useShortStrings ? Rez.Strings.menu_meditation_short : Rez.Strings.menu_meditation) as String, null, "meditations", null));
         

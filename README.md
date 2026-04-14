@@ -1,4 +1,5 @@
 # GarminRosary
+PATCH TEST REDDIT
 
 **GarminRosary** is a standalone rosary companion application for Garmin devices. It helps users pray the Rosary without needing a phone, offering a simple and focused interface on the wrist.
 

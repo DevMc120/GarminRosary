@@ -38,6 +38,7 @@ class RosaryModel {
     var mysteryType as Number = MYSTERY_JOYFUL;
     var isComplete as Boolean = false;
     var isManualMystery as Boolean = false;
+    var manualSelectionDay as Number = 0;  // Jour de la sélection manuelle (day_of_week)
     var isFullRosary as Boolean = false;    
     var pendingMysteryTransition as Boolean = false; 
     var nextMysteryType as Number = MYSTERY_JOYFUL; 
@@ -369,6 +370,8 @@ class RosaryModel {
     function setManualMystery(type as Number) as Void {
         mysteryType = type;
         isManualMystery = true;
+        var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+        manualSelectionDay = today.day_of_week;
         isFullRosary = false;
         reset();
         saveState();
@@ -401,6 +404,7 @@ class RosaryModel {
         storage.setValue("totalBeads", totalBeads);
         storage.setValue("mysteryType", mysteryType);
         storage.setValue("isManualMystery", isManualMystery);
+        storage.setValue("manualSelectionDay", manualSelectionDay);
         storage.setValue("isFullRosary", isFullRosary);
         storage.setValue("isComplete", isComplete);
         storage.setValue("pendingMysteryTransition", pendingMysteryTransition);
@@ -438,6 +442,19 @@ class RosaryModel {
             var savedNextMystery = storage.getValue("nextMysteryType");
             if (savedNextMystery != null) { nextMysteryType = savedNextMystery as Number; }
             
+            var savedSelDay = storage.getValue("manualSelectionDay");
+            if (savedSelDay != null) { manualSelectionDay = savedSelDay as Number; }
+            
+            // Auto-reset : si sélection manuelle ET jour différent ET pas encore commencé → retour en auto
+            if (isManualMystery && !isFullRosary && phase == 0) {
+                var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+                if (today.day_of_week != manualSelectionDay) {
+                    isManualMystery = false;
+                    manualSelectionDay = 0;
+                    mysteryType = getMysteryForToday();
+                }
+            }
+            
             if (!isManualMystery && phase == 0) {
                 mysteryType = getMysteryForToday();
             }
@@ -451,6 +468,7 @@ class RosaryModel {
         storage.deleteValue("totalBeads");
         storage.deleteValue("mysteryType");
         storage.deleteValue("isManualMystery");
+        storage.deleteValue("manualSelectionDay");
         storage.deleteValue("isFullRosary");
         storage.deleteValue("isComplete");
         storage.deleteValue("pendingMysteryTransition");

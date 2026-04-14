@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosary</string>
-    <string id="AppVersion">1.3.5</string>
+    <string id="AppVersion">1.3.6</string>
 
     <!-- Menu -->
     <string id="menu_restart">Restart</string>
@@ -55,6 +55,11 @@ Swipe Down: Previous</string>
     <string id="text_finished">Rosary Complete</string>
     <string id="text_finished_rosary">Full Rosary Complete</string>
     <string id="text_intro">Intro</string>
+    <string id="mode_auto">Auto</string>
+    <string id="mode_manual">Manual</string>
+    <string id="intro_faith">Faith</string>
+    <string id="intro_hope">Hope</string>
+    <string id="intro_charity">Charity</string>
 
     <!-- Joyful Mysteries -->
     <string id="joyful_1_title">The Annunciation</string>
