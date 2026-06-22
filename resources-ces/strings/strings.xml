@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <!-- App -->
+    <string id="AppName">Růženec</string>
+    <string id="AppVersion">1.3.6</string>
+
+    <!-- Menu -->
+    <string id="menu_restart">Začít znovu</string>
+    <string id="menu_joyful">Radostná tajemství</string>
+    <string id="menu_sorrowful">Bolestná tajemství</string>
+    <string id="menu_glorious">Slavná tajemství</string>
+    <string id="menu_luminous">Tajemství světla</string>
+    <string id="menu_rosary">Růženec (15 desátků)</string>
+    <string id="MysteryAuto">Tajemství dne</string>
+    <string id="menu_auto_meditation">Automatická meditace</string>
+    <string id="menu_help">Nápověda / Ovládání</string>
+    <string id="help_text">OVLÁDÁNÍ
+
+[TLAČÍTKA]
+Potvrdit: Další modlitba
+Podržet: Číst text
+Nahoru/Dolů: Navigace
+Menu: Možnosti
+Zpět: Konec a uložit
+
+[DOTYK]
+Klepnout: Další modlitba
+Přejet nahoru: Číst text
+Přejet dolů: Předchozí</string>
+
+    <!-- Short versions for small screens (FR55, etc.) -->
+    <string id="menu_joyful_short">Radostná taj.</string>
+    <string id="menu_sorrowful_short">Bolestná taj.</string>
+    <string id="menu_glorious_short">Slavná taj.</string>
+    <string id="menu_luminous_short">Taj. světla</string>
+    <string id="menu_rosary_short">Růženec (15 des.)</string>
+    <string id="MysteryAuto_short">Taj. dne</string>
+
+    <!-- Names of Mystery Types -->
+    <string id="mystery_joyful">Radostná</string>
+    <string id="mystery_sorrowful">Bolestná</string>
+    <string id="mystery_glorious">Slavná</string>
+    <string id="mystery_luminous">Světelná</string>
+
+    <!-- Prayers -->
+    <string id="prayer_cross">Znamení kříže</string>
+    <string id="prayer_creed">Věřím v Boha</string>
+    <string id="prayer_pater">Otče náš</string>
+    <string id="prayer_ave">Zdrávas Maria</string>
+    <string id="prayer_gloria">Sláva Otci</string>
+    <string id="prayer_salve">Zdrávas Královno</string>
+
+    <!-- UI Text -->
+    <string id="text_amen">AMEN</string>
+    <string id="text_finished">Růženec dokončen</string>
+    <string id="text_finished_rosary">Celý růženec dokončen</string>
+    <string id="text_intro">Úvod</string>
+    <string id="mode_auto">Auto</string>
+    <string id="mode_manual">Ručně</string>
+    <string id="intro_faith">Víra</string>
+    <string id="intro_hope">Naděje</string>
+    <string id="intro_charity">Láska</string>
+
+    <!-- Joyful Mysteries -->
+    <string id="joyful_1_title">kterého jsi z Ducha Svatého počala</string>
+    <string id="joyful_1_fruit">Pokora</string>
+    <string id="joyful_2_title">s kterým jsi Alžbětu navštívila</string>
+    <string id="joyful_2_fruit">Bratrská láska</string>
+    <string id="joyful_3_title">kterého jsi v Betlémě porodila</string>
+    <string id="joyful_3_fruit">Chudoba duchem</string>
+    <string id="joyful_4_title">kterého jsi v chrámě obětovala</string>
+    <string id="joyful_4_fruit">Poslušnost</string>
+    <string id="joyful_5_title">kterého jsi v chrámě nalezla</string>
+    <string id="joyful_5_fruit">Hledání Boha</string>
+
+    <!-- Sorrowful Mysteries -->
+    <string id="sorrowful_1_title">který se pro nás krví potil</string>
+    <string id="sorrowful_1_fruit">Lítost nad hříchy</string>
+    <string id="sorrowful_2_title">který byl pro nás bičován</string>
+    <string id="sorrowful_2_fruit">Umírňování smyslů</string>
+    <string id="sorrowful_3_title">který byl pro nás trním korunován</string>
+    <string id="sorrowful_3_fruit">Umírňování ducha</string>
+    <string id="sorrowful_4_title">který pro nás nesl těžký kříž</string>
+    <string id="sorrowful_4_fruit">Trpělivost v utrpení</string>
+    <string id="sorrowful_5_title">který byl pro nás ukřižován</string>
+    <string id="sorrowful_5_fruit">Láska k Bohu</string>
+
+    <!-- Glorious Mysteries -->
+    <string id="glorious_1_title">který z mrtvých vstal</string>
+    <string id="glorious_1_fruit">Víra</string>
+    <string id="glorious_2_title">který na nebe vstoupil</string>
+    <string id="glorious_2_fruit">Naděje</string>
+    <string id="glorious_3_title">který Ducha Svatého seslal</string>
+    <string id="glorious_3_fruit">Láska a horlivost</string>
+    <string id="glorious_4_title">který tě, Panno, do nebe vzal</string>
+    <string id="glorious_4_fruit">Milost šťastné smrti</string>
+    <string id="glorious_5_title">který tě v nebi korunoval</string>
+    <string id="glorious_5_fruit">Důvěra v Marii</string>
+
+    <!-- Luminous Mysteries -->
+    <string id="luminous_1_title">který byl pokřtěn v Jordánu</string>
+    <string id="luminous_1_fruit">Věrnost křtu</string>
+    <string id="luminous_2_title">který zjevil v Káně svou božskou moc</string>
+    <string id="luminous_2_fruit">K Ježíši skrze Marii</string>
+    <string id="luminous_3_title">který hlásal Boží království a vyzýval k pokání</string>
+    <string id="luminous_3_fruit">Obrácení</string>
+    <string id="luminous_4_title">který na hoře Proměnění zjevil svou slávu</string>
+    <string id="luminous_4_fruit">Touha po svatosti</string>
+    <string id="luminous_5_title">který ustanovil Eucharistii</string>
+    <string id="luminous_5_fruit">Klanění</string>
+
+    <string id="joyful_1_title_long">kterého jsi z Ducha Svatého počala</string>
+    <string id="joyful_1_fruit_long">Pokora</string>
+    <string id="joyful_2_title_long">s kterým jsi Alžbětu navštívila</string>
+    <string id="joyful_2_fruit_long">Bratrská láska</string>
+    <string id="joyful_3_title_long">kterého jsi v Betlémě porodila</string>
+    <string id="joyful_3_fruit_long">Chudoba duchem</string>
+    <string id="joyful_4_title_long">kterého jsi v chrámě obětovala</string>
+    <string id="joyful_4_fruit_long">Poslušnost</string>
+    <string id="joyful_5_title_long">kterého jsi v chrámě nalezla</string>
+    <string id="joyful_5_title_medium">v chrámě nalezla</string>
+    <string id="joyful_5_fruit_long">Hledání Boha</string>
+
+    <string id="sorrowful_1_title_long">který se pro nás krví potil</string>
+    <string id="sorrowful_1_fruit_long">Lítost nad hříchy</string>
+    <string id="sorrowful_2_title_long">který byl pro nás bičován</string>
+    <string id="sorrowful_2_fruit_long">Umírňování smyslů</string>
+    <string id="sorrowful_3_title_long">který byl pro nás trním korunován</string>
+    <string id="sorrowful_3_title_medium">trním korunován</string>
+    <string id="sorrowful_3_fruit_long">Umírňování ducha</string>
+    <string id="sorrowful_4_title_long">který pro nás nesl těžký kříž</string>
+    <string id="sorrowful_4_fruit_long">Trpělivost v utrpení</string>
+    <string id="sorrowful_5_title_long">který byl pro nás ukřižován</string>
+    <string id="sorrowful_5_fruit_long">Láska k Bohu</string>
+
+    <string id="glorious_1_title_long">který z mrtvých vstal</string>
+    <string id="glorious_1_title_medium">z mrtvých vstal</string>
+    <string id="glorious_1_fruit_long">Víra</string>
+    <string id="glorious_2_title_long">který na nebe vstoupil</string>
+    <string id="glorious_2_title_medium">na nebe vstoupil</string>
+    <string id="glorious_2_fruit_long">Naděje</string>
+    <string id="glorious_3_title_long">který Ducha Svatého seslal</string>
+    <string id="glorious_3_fruit_long">Láska a horlivost</string>
+    <string id="glorious_4_title_long">který tě, Panno, do nebe vzal</string>
+    <string id="glorious_4_fruit_long">Milost šťastné smrti</string>
+    <string id="glorious_5_title_long">který tě v nebi korunoval</string>
+    <string id="glorious_5_title_medium">v nebi korunoval</string>
+    <string id="glorious_5_fruit_long">Důvěra v Marii</string>
+
+    <string id="luminous_1_title_long">který byl pokřtěn v Jordánu</string>
+    <string id="luminous_1_fruit_long">Věrnost křtu</string>
+    <string id="luminous_2_title_long">který zjevil v Káně svou božskou moc</string>
+    <string id="luminous_2_fruit_long">K Ježíši skrze Marii</string>
+    <string id="luminous_3_title_long">který hlásal Boží království a vyzýval k pokání</string>
+    <string id="luminous_3_fruit_long">Obrácení</string>
+    <string id="luminous_4_title_long">který na hoře Proměnění zjevil svou slávu</string>
+    <string id="luminous_4_fruit_long">Touha po svatosti</string>
+    <string id="luminous_5_title_long">který ustanovil Eucharistii</string>
+    <string id="luminous_5_fruit_long">Klanění</string>
+
+    <!-- Menu Meditation -->
+    <string id="menu_meditation">Meditace</string>
+    <string id="menu_meditation_short">Medit.</string>
+
+    <!-- Meditation Texts -->
+    <string id="hint_scroll">Rolovat</string>
+    <string id="hint_more">Více</string>
+    <string id="hint_up">Nahoru</string>
+    <string id="hint_back">Zpět</string>
+    <string id="hint_close">Klepnout nebo ZPĚT pro zavření</string>
+    <string id="hint_tap_close">Klepnutím zavřít</string>
+    <string id="label_fruit">Plod:</string>
+
+    <string id="joyful_1_meditation">V tichu Maria říká své „Fiat." Stvořitel se stává tvorem. Prosme o milost, abychom svůj život zcela odevzdali Bohu. (Lk 1,38)</string>
+    <string id="joyful_2_meditation">S Božím Slovem Maria spěchá k Alžbětě. Přinášejme Krista druhým – ne mnoha slovy, ale radostí zářivé lásky. (Lk 1,39)</string>
+    <string id="joyful_3_meditation">Král vesmíru se rodí v chlévě. Stává se chudým, aby nás obohatil. Odpoutejme srdce od pozemských statků, abychom přijali pravý Poklad. (Lk 2,7)</string>
+    <string id="joyful_4_meditation">Simeon poznává Světlo národů. Obětujme se Pánu, abychom byli očištěni a zcela zasvěceni jeho službě. (Lk 2,22)</string>
+    <string id="joyful_5_meditation">Ježíš hlásá absolutní přednost Otce. Kéž je pro nás ztráta jeho přítomnosti nesnesitelná; hledejme ho stále v chrámu svého srdce. (Lk 2,49)</string>
+
+    <string id="sorrowful_1_meditation">Tváří v tvář hříchu Ježíš potí krev. „Ne má, ale tvá vůle." Spojme své úzkosti s jeho dokonalou obětí a řekněme Bohu „Ano." (Lk 22,42)</string>
+    <string id="sorrowful_2_meditation">Nevinný Beránek je bičován, aby odčinil hříchy těla. Nehýčkejme svá těla, ale spojme svá utrpení s jeho svatými ranami. (Iz 53,5)</string>
+    <string id="sorrowful_3_meditation">Král králů je korunován výsměchem. Odčiňuje naši pýchu. Přijímejme pokořování s pokorou, aby mohl vládnout v naší mysli. (Mt 27,29)</string>
+    <string id="sorrowful_4_meditation">Ježíš objímá kříž naší spásy. Neodmítejme své každodenní kříže; neseny s ním se stávají klíčem, který otvírá nebe. (Lk 23,26)</string>
+    <string id="sorrowful_5_meditation">Z kříže nám dává vše: své odpuštění a svou Matku. Nežijme již pro sebe, ale pro toho, který za nás zemřel. (Jan 19,26)</string>
+
+    <string id="glorious_1_meditation">Hrob je prázdný, smrt je přemožena. Ať velikonoční světlo rozptýlí naši tmu: zemřeme-li s ním, budeme s ním žít navěky. (Mt 28,6)</string>
+    <string id="glorious_2_meditation">Ježíš se vrací k Otci, aby nám připravil místo. Povznesme svá srdce: naše pravá vlast je v nebi, ne na této zemi. (Sk 1,9)</string>
+    <string id="glorious_3_meditation">Oheň Ducha sestupuje. Mění strach v odvahu. Přijď, Duchu Svatý, zažehni v nás svou lásku a učiň nás hořícími svědky. (Sk 2,4)</string>
+    <string id="glorious_4_meditation">Matka Boží je přijata do slávy. Je obrazem toho, čím budeme. Prosme ji, aby nám pomáhala v hodinu naší smrti. (Tradice)</string>
+    <string id="glorious_5_meditation">Maria je Královna a Prostřednice všech milostí. Důvěřujme její mateřské ochraně: bezpečně nás povede k trůnu svého Syna. (Zj 12,1)</string>
+
+    <string id="luminous_1_meditation">Nevinný sestupuje do vod. Probuďme milost svého křtu: jsme Boží děti, povolané naslouchat Ježíšovi. (Mt 3,17)</string>
+    <string id="luminous_2_meditation">Na Mariinu prosbu mění Ježíš vodu ve víno. S důvěrou v její přímluvu („Udělejte, co vám řekne") svěřujme Kristu své potřeby. (Jan 2,5)</string>
+    <string id="luminous_3_meditation">Boží království je zde. Přijměme jeho Slovo pravdy, které nás osvobozuje; odříkejme se hříchu, abychom žili podle blahoslavenství. (Mk 1,15)</string>
+    <string id="luminous_4_meditation">Boží sláva září skrze Kristovo lidství. Upřime pohled na jeho zářící Tvář, abychom s nadějí vytrvali ve zkouškách víry. (Mt 17,2)</string>
+    <string id="luminous_5_meditation">„Toto je moje tělo, které se za vás vydává." Ježíš se stává pokrmem, aby v nás přebýval. Čerpejme z Eucharistie sílu milovat tak, jak miloval on. (Lk 22,19)</string>
+
+    <!-- Long Titles (duplicated for compatibility) -->
+    <string id="joyful_4_title_long">kterého jsi v chrámě obětovala</string>
+    <string id="luminous_5_title_long">který ustanovil Eucharistii</string>
+    <!-- Short Titles -->
+    <string id="joyful_1_title_short">z D. Sv. počala</string>
+    <string id="joyful_2_title_short">Alžbětu navštívila</string>
+    <string id="joyful_3_title_short">v Betlémě porodila</string>
+    <string id="joyful_4_title_short">v chrámě obětovala</string>
+    <string id="joyful_5_title_short">v chrámě nalezla</string>
+
+    <string id="sorrowful_1_title_short">krví potil</string>
+    <string id="sorrowful_2_title_short">bičován</string>
+    <string id="sorrowful_3_title_short">trním korunován</string>
+    <string id="sorrowful_4_title_short">nesl těžký kříž</string>
+    <string id="sorrowful_5_title_short">ukřižován</string>
+
+    <string id="glorious_1_title_short">z mrtvých vstal</string>
+    <string id="glorious_2_title_short">na nebe vstoupil</string>
+    <string id="glorious_3_title_short">D. Sv. seslal</string>
+    <string id="glorious_4_title_short">do nebe vzal</string>
+    <string id="glorious_5_title_short">v nebi korunoval</string>
+
+    <string id="luminous_1_title_short">pokřtěn v Jordánu</string>
+    <string id="luminous_2_title_short">zjevil moc v Káně</string>
+    <string id="luminous_3_title_short">hlásal Boží král.</string>
+    <string id="luminous_4_title_short">zjevil svou slávu</string>
+    <string id="luminous_5_title_short">ustanovil Euchar.</string>
+</strings>
