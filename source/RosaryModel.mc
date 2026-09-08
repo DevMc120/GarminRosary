@@ -47,6 +47,7 @@ class RosaryModel {
     const DECADE_BEADS = 12;        
     const TOTAL_DECADES = 5;
     const TOTAL_ROSARY_BEADS = 68;  
+    const TOTAL_FULL_ROSARY_MYSTERIES = 4;
 
     var mysteryTitles as Dictionary or Null = null;
     var mysteryFruits as Dictionary or Null = null;
@@ -174,6 +175,13 @@ class RosaryModel {
                             beadInPhase = 13;
                             totalBeads--;
                             return STATE_MYSTERY_TRANSITION;
+                        } else if (mysteryType == MYSTERY_GLORIOUS) {
+                            nextMysteryType = MYSTERY_LUMINOUS;
+                            pendingMysteryTransition = true;
+                            phase = 5;
+                            beadInPhase = 13;
+                            totalBeads--;
+                            return STATE_MYSTERY_TRANSITION;
                         } 
                     }
                     
@@ -230,7 +238,7 @@ class RosaryModel {
                     beadInPhase = 12;
                     return;
                 } else if (mysteryType == MYSTERY_LUMINOUS) {
-                    mysteryType = MYSTERY_JOYFUL;
+                    mysteryType = MYSTERY_GLORIOUS;
                     phase = 5;
                     beadInPhase = 12;
                     return;
@@ -349,7 +357,7 @@ class RosaryModel {
     function getProgress() as Float {
         var totalExpected = TOTAL_ROSARY_BEADS;
         if (isFullRosary) {
-            totalExpected = 7 + (3 * 5 * 12);
+            totalExpected = 7 + (TOTAL_FULL_ROSARY_MYSTERIES * 5 * 12);
         }
         return totalBeads.toFloat() / totalExpected.toFloat();
     }

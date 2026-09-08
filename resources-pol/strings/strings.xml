@@ -2,7 +2,10 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Różaniec</string>
-    <string id="AppVersion">1.3.6</string>
+    <string id="AppVersion">1.3.7</string>
+
+    <!-- Identité produit DeviceProfile (non traduite ; valeur par défaut, surchargée par produit). -->
+    <string id="DeviceProfileId">generic</string>
 
     <!-- Menu -->
     <string id="menu_restart">Zrestartuj</string>
@@ -10,7 +13,7 @@
     <string id="menu_sorrowful">Tajemnice Bolesne</string>
     <string id="menu_glorious">Tajemnice Chwalebne</string>
     <string id="menu_luminous">Tajemnice Światła</string>
-    <string id="menu_rosary">Różaniec (15 tajemnic)</string>
+    <string id="menu_rosary">Różaniec (20 tajemnic)</string>
     <string id="MysteryAuto">Tajemnice Dnia</string>
     <string id="menu_auto_meditation">Auto-medytacja</string>
     <string id="menu_help">Pomoc / Sterowanie</string>
@@ -33,7 +36,7 @@ Swipe Dół: Wstecz</string>
     <string id="menu_sorrowful_short">Tajem. Bolesne</string>
     <string id="menu_glorious_short">Tajem. Chwalebne</string>
     <string id="menu_luminous_short">Tajem. Światła</string>
-    <string id="menu_rosary_short">Różaniec (15)</string>
+    <string id="menu_rosary_short">Różaniec (20)</string>
     <string id="MysteryAuto_short">Tajem. Dnia</string>
     
     <!-- Names of Mystery Types -->

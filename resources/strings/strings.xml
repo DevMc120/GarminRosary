@@ -2,7 +2,7 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Rosary</string>
-    <string id="AppVersion">1.3.6</string>
+    <string id="AppVersion">1.3.7</string>
 
     <!-- Menu -->
     <string id="menu_restart">Restart</string>
@@ -10,7 +10,7 @@
     <string id="menu_sorrowful">Sorrowful Mysteries</string>
     <string id="menu_glorious">Glorious Mysteries</string>
     <string id="menu_luminous">Luminous Mysteries</string>
-    <string id="menu_rosary">Rosary (15 decades)</string>
+    <string id="menu_rosary">Rosary (20 decades)</string>
     <string id="MysteryAuto">Mysteries of the Day</string>
     <string id="menu_auto_meditation">Auto-meditation</string>
     <string id="menu_help">Help / Controls</string>
@@ -33,7 +33,7 @@ Swipe Down: Previous</string>
     <string id="menu_sorrowful_short">Sorrowful Myst.</string>
     <string id="menu_glorious_short">Glorious Myst.</string>
     <string id="menu_luminous_short">Luminous Myst.</string>
-    <string id="menu_rosary_short">Rosary (15 dec.)</string>
+    <string id="menu_rosary_short">Rosary (20 dec.)</string>
     <string id="MysteryAuto_short">Myst. of Day</string>
     
     <!-- Names of Mystery Types -->

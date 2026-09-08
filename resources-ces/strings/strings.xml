@@ -2,7 +2,10 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- App -->
     <string id="AppName">Růženec</string>
-    <string id="AppVersion">1.3.6</string>
+    <string id="AppVersion">1.3.7</string>
+
+    <!-- Identité produit DeviceProfile (non traduite ; valeur par défaut, surchargée par produit). -->
+    <string id="DeviceProfileId">generic</string>
 
     <!-- Menu -->
     <string id="menu_restart">Začít znovu</string>
@@ -10,7 +13,7 @@
     <string id="menu_sorrowful">Bolestná tajemství</string>
     <string id="menu_glorious">Slavná tajemství</string>
     <string id="menu_luminous">Tajemství světla</string>
-    <string id="menu_rosary">Růženec (15 desátků)</string>
+    <string id="menu_rosary">Růženec (20 desátků)</string>
     <string id="MysteryAuto">Tajemství dne</string>
     <string id="menu_auto_meditation">Automatická meditace</string>
     <string id="menu_help">Nápověda / Ovládání</string>
@@ -33,7 +36,7 @@ Přejet dolů: Předchozí</string>
     <string id="menu_sorrowful_short">Bolestná taj.</string>
     <string id="menu_glorious_short">Slavná taj.</string>
     <string id="menu_luminous_short">Taj. světla</string>
-    <string id="menu_rosary_short">Růženec (15 des.)</string>
+    <string id="menu_rosary_short">Růženec (20 des.)</string>
     <string id="MysteryAuto_short">Taj. dne</string>
 
     <!-- Names of Mystery Types -->
@@ -77,9 +80,9 @@ Přejet dolů: Předchozí</string>
     <string id="sorrowful_1_title">který se pro nás krví potil</string>
     <string id="sorrowful_1_fruit">Lítost nad hříchy</string>
     <string id="sorrowful_2_title">který byl pro nás bičován</string>
-    <string id="sorrowful_2_fruit">Umírňování smyslů</string>
+    <string id="sorrowful_2_fruit">Umrtvování smyslů</string>
     <string id="sorrowful_3_title">který byl pro nás trním korunován</string>
-    <string id="sorrowful_3_fruit">Umírňování ducha</string>
+    <string id="sorrowful_3_fruit">Umrtvování ducha</string>
     <string id="sorrowful_4_title">který pro nás nesl těžký kříž</string>
     <string id="sorrowful_4_fruit">Trpělivost v utrpení</string>
     <string id="sorrowful_5_title">který byl pro nás ukřižován</string>
@@ -124,10 +127,10 @@ Přejet dolů: Předchozí</string>
     <string id="sorrowful_1_title_long">který se pro nás krví potil</string>
     <string id="sorrowful_1_fruit_long">Lítost nad hříchy</string>
     <string id="sorrowful_2_title_long">který byl pro nás bičován</string>
-    <string id="sorrowful_2_fruit_long">Umírňování smyslů</string>
+    <string id="sorrowful_2_fruit_long">Umrtvování smyslů</string>
     <string id="sorrowful_3_title_long">který byl pro nás trním korunován</string>
     <string id="sorrowful_3_title_medium">trním korunován</string>
-    <string id="sorrowful_3_fruit_long">Umírňování ducha</string>
+    <string id="sorrowful_3_fruit_long">Umrtvování ducha</string>
     <string id="sorrowful_4_title_long">který pro nás nesl těžký kříž</string>
     <string id="sorrowful_4_fruit_long">Trpělivost v utrpení</string>
     <string id="sorrowful_5_title_long">který byl pro nás ukřižován</string>
@@ -195,11 +198,9 @@ Přejet dolů: Předchozí</string>
     <string id="luminous_4_meditation">Boží sláva září skrze Kristovo lidství. Upřime pohled na jeho zářící Tvář, abychom s nadějí vytrvali ve zkouškách víry. (Mt 17,2)</string>
     <string id="luminous_5_meditation">„Toto je moje tělo, které se za vás vydává." Ježíš se stává pokrmem, aby v nás přebýval. Čerpejme z Eucharistie sílu milovat tak, jak miloval on. (Lk 22,19)</string>
 
-    <!-- Long Titles (duplicated for compatibility) -->
-    <string id="joyful_4_title_long">kterého jsi v chrámě obětovala</string>
-    <string id="luminous_5_title_long">který ustanovil Eucharistii</string>
+
     <!-- Short Titles -->
-    <string id="joyful_1_title_short">z D. Sv. počala</string>
+    <string id="joyful_1_title_short">z D. sv. počala</string>
     <string id="joyful_2_title_short">Alžbětu navštívila</string>
     <string id="joyful_3_title_short">v Betlémě porodila</string>
     <string id="joyful_4_title_short">v chrámě obětovala</string>
@@ -213,7 +214,7 @@ Přejet dolů: Předchozí</string>
 
     <string id="glorious_1_title_short">z mrtvých vstal</string>
     <string id="glorious_2_title_short">na nebe vstoupil</string>
-    <string id="glorious_3_title_short">D. Sv. seslal</string>
+    <string id="glorious_3_title_short">D. sv. seslal</string>
     <string id="glorious_4_title_short">do nebe vzal</string>
     <string id="glorious_5_title_short">v nebi korunoval</string>
 
