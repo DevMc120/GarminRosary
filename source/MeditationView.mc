@@ -10,14 +10,27 @@ class MeditationView extends WatchUi.View {
     private var _isRectangular as Boolean = false;
     private var _isInstinct2 as Boolean = false;
 
-    private var _colorBg as Number = 0x001B3A;
+    // Valeurs de repli (repointées sur la Palette noir/blanc/or en onLayout). Le fond
+    // navy historique (0x001B3A) est abandonné au profit du noir, cohérent avec l'écran
+    // dizaine (direction A′) et meilleur au soleil (MIP) comme en batterie (AMOLED).
+    private var _colorBg as Number = 0x000000;
     private var _colorGold as Number = 0xFFD700;
     private var _colorTextMain as Number = 0xFFFFFF;
-    private var _colorTextDim as Number = 0xA0A0A0;
+    private var _colorTextDim as Number = 0xAAAAAA;
 
     private var _scrollOffset as Number = 0;
     private var _totalLines as Number = 0;
     private var _visibleLines as Number = 5;
+
+    // Centre et largeur EFFECTIFS du contenu. Identiques à l'écran physique sauf sur
+    // profil à sous-fenêtre (Instinct) : le contenu est alors déporté dans la « colonne
+    // pleine » à gauche du secteur occulté (réutilise LayoutAnchors, logique testée),
+    // de sorte qu'aucun texte ne passe sous la sous-fenêtre. _Requirements: 9.2, 9.5_
+    private var _contentCenterX as Number = 120;
+    private var _contentWidth as Number = 240;
+    //! Ordonnée de départ du contenu quand une sous-fenêtre occulte le haut-droite
+    //! (Instinct) : le contenu commence sous le disque occulté. 0 = pas de contrainte.
+    private var _topSafeY as Number = 0;
 
     // Cache
     private var _cachedTitleLines as Array<String> = [];
@@ -56,16 +69,38 @@ class MeditationView extends WatchUi.View {
     function onLayout(dc as Dc) as Void {
         _screenWidth = dc.getWidth();
         _screenHeight = dc.getHeight();
-        _isRectangular = (_screenHeight > _screenWidth * 1.1);
-        
-        if (_screenWidth <= 176 && _screenHeight <= 176) {
-            _isInstinct2 = true;
-            setupMonochromeColors();
-        } else if (dc has :getColorDepth) {
-            if (dc.getColorDepth() <= 2) { 
-                setupMonochromeColors();
-            }
-        }
+        // --- Fondation partagée : même source de vérité que l'écran dizaine ----------
+        // On abandonne les heuristiques fragiles (`height > width*1.1`, `width<=176`,
+        // `getColorDepth`) et le fond navy historique : DeviceProfile classe forme /
+        // techno / monochrome / Instinct, Palette impose noir/blanc/or (réduction
+        // monochrome incluse). Le profil est un singleton de session déjà calculé par
+        // l'écran dizaine ; on réutilise donc la même instance (cohérence garantie).
+        var profile = DeviceProfile.fromSystem(dc);
+        var pal = Palette.forProfile(profile);
+        _isRectangular = (profile.shape == RosaryConstants.SHAPE_RECTANGLE);
+        _isInstinct2 = profile.isInstinct;
+
+        _colorBg = pal.background();            // noir (remplace le navy)
+        _colorGold = pal.accentForMystery(_model.mysteryType); // accent par mystère (essai), or si flag off
+        _colorTextMain = pal.textPrimary();     // blanc
+        // Mention discrète (label du fruit, hint) : gris lisible en couleur, blanc en
+        // monochrome (aucun gris intermédiaire). Contraste volontairement < texte.
+        _colorTextDim = pal.isMonochrome() ? Palette.COLOR_WHITE : 0xAAAAAA;
+
+        // Sur profil à sous-fenêtre (Instinct), le secteur occulté est en HAUT-À-DROITE.
+        // Plutôt que de comprimer tout le texte dans une colonne étroite à gauche (illisible),
+        // on garde la PLEINE LARGEUR centrée et on fait DÉMARRER le contenu SOUS le disque
+        // occulté (`_topSafeY`) : toute la zone basse — la plus grande — est exploitée et
+        // aucun texte ne passe sous la sous-fenêtre. _Requirements: 9.2, 9.5_
+        _contentCenterX = _screenWidth / 2;
+        _contentWidth = _screenWidth;
+        // Vue de méditation (scrollable) : ne PAS pousser le contenu sous la
+        // sous-fenêtre Instinct. Sur un écran de 176 px, _topSafeY ≈ 89 px ne
+        // laissait que ~37 px pour le fruit et le texte — trop peu pour afficher
+        // ne serait-ce qu'une seule ligne (écran quasi blanc). On garde le
+        // topPadding standard (PAD_TOP_INSTINCT = 35) comme seul décalage, en
+        // acceptant qu'un coin du titre chevauche la sous-fenêtre physique.
+        _topSafeY = 0;
         
         if (_screenHeight >= 280) {
             _visibleLines = 5;
@@ -98,37 +133,30 @@ class MeditationView extends WatchUi.View {
         var meditFont = Graphics.FONT_XTINY;
 
         // Title
-        var maxTitleWidth = (_screenWidth * TITLE_MAX_WIDTH_RATIO).toNumber();
+        var maxTitleWidth = (_contentWidth * TITLE_MAX_WIDTH_RATIO).toNumber();
         var titleLines = splitString(title, ' ');
         // NOTE: wrappedText logic requires DC. 
         _cachedTitleLines = wrapText(dc, titleLines, maxTitleWidth, titleFont);
         _cachedTitleBlockHeight = _cachedTitleLines.size() * dc.getFontHeight(titleFont);
         
         // Fruit
-        var maxFruitWidth = (_screenWidth * FRUIT_MAX_WIDTH_RATIO).toNumber();
+        var maxFruitWidth = (_contentWidth * FRUIT_MAX_WIDTH_RATIO).toNumber();
         var fruitLabel = WatchUi.loadResource(Rez.Strings.label_fruit) as String;
         _cachedFruitRenderLines = wrapText(dc, splitString(fruitLabel + " " + fruit, ' '), maxFruitWidth, fruitFont);
         
         // Meditation
-        var maxMeditationWidth = (_screenWidth * MEDIT_MAX_WIDTH_RATIO).toNumber();
+        var maxMeditationWidth = (_contentWidth * MEDIT_MAX_WIDTH_RATIO).toNumber();
         _cachedMeditRenderLines = wrapText(dc, splitString(meditation, ' '), maxMeditationWidth, meditFont);
         
         // Total Lines
         _totalLines = _cachedFruitRenderLines.size() + 1 + _cachedMeditRenderLines.size();
     }
 
-    private function setupMonochromeColors() as Void {
-        _colorBg = Graphics.COLOR_BLACK;
-        _colorGold = Graphics.COLOR_WHITE;
-        _colorTextMain = Graphics.COLOR_WHITE;
-        _colorTextDim = Graphics.COLOR_WHITE;
-    }
-
     function onUpdate(dc as Dc) as Void {
         dc.setColor(_colorBg, _colorBg);
         dc.clear();
 
-        var centerX = _screenWidth / 2;
+        var centerX = _contentCenterX;
 
         // --- DONNEES (CACHED) ---
         // On récupère juste les fonts pour le padding/dessin
@@ -141,7 +169,8 @@ class MeditationView extends WatchUi.View {
         
         // --- LAYOUT ---
         var topPadding = _isRectangular ? PAD_TOP_RECT : (_isInstinct2 ? PAD_TOP_INSTINCT : PAD_TOP_ROUND); 
-        var titleY = topPadding;
+        // Sur profil à sous-fenêtre, le titre démarre SOUS le disque occulté (pleine largeur).
+        var titleY = (_topSafeY > 0) ? _topSafeY : topPadding;
         
         dc.setColor(_colorGold, Graphics.COLOR_TRANSPARENT);
         // USE CACHE
@@ -162,27 +191,26 @@ class MeditationView extends WatchUi.View {
         var textLineHeight = stdLineHeight + 4;
         
         var sepItemHeight = _isInstinct2 ? 8 : 10;
-        
-        var scrollableTopBaseY = titleY + titleBlockHeight + 2; 
+
+        // Filet doré COURT centré sous le titre : signature visuelle discrète (direction
+        // A′), qui distingue nettement le mystère du corps de méditation sans surcharger.
+        var titleSepGap = _isInstinct2 ? 10 : 14;
+        var titleSepY = titleY + titleBlockHeight + (titleSepGap / 2);
+        dc.setColor(_colorGold, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(1); // filet fin
+        dc.drawLine(centerX - 22, titleSepY, centerX + 22, titleSepY);
+
+        var scrollableTopBaseY = titleY + titleBlockHeight + titleSepGap; 
         
         var bottomPadding = _isInstinct2 ? PAD_BTM_INSTINCT : PAD_BTM_ROUND;
         var hintY = _screenHeight - bottomPadding - dc.getFontHeight(hintFont) + 5; 
         var scrollableBottomY = hintY - 5;
         
-        // -- LOGIQUE STICKY --
-        // sticky si on a dépassé le séparateur (fruit.size())
+        // Séparateur fruit/méditation : dessiné UNIQUEMENT à sa position naturelle dans le
+        // flux de défilement (plus de comportement « sticky » qui dédoublait le filet sous
+        // le titre lorsqu'on descendait).
         var separatorLimitIndex = fruitRenderLines.size();
-        var isSticky = (_scrollOffset > separatorLimitIndex);
-        
         var currentY = scrollableTopBaseY;
-        
-        if (isSticky) {
-            dc.setColor(_colorGold, Graphics.COLOR_TRANSPARENT);
-            var lineY = scrollableTopBaseY + (sepItemHeight / 2); 
-            dc.drawLine(centerX - 40, lineY, centerX + 40, lineY);
-            
-            currentY += sepItemHeight; 
-        }
 
         var idx = _scrollOffset;
         _visibleLines = 0; 
@@ -191,13 +219,9 @@ class MeditationView extends WatchUi.View {
             var itemHeight = textLineHeight; 
             
             if (idx == separatorLimitIndex) {
-                itemHeight = sepItemHeight; 
-                
-                if (currentY + itemHeight <= scrollableBottomY + (itemHeight/2)) {
-                     dc.setColor(_colorGold, Graphics.COLOR_TRANSPARENT);
-                     var lineY = currentY + (itemHeight / 2);
-                     dc.drawLine(centerX - 40, lineY, centerX + 40, lineY);
-                }
+                // Espaceur entre fruit et méditation : AUCUN trait (le fruit est déjà
+                // distingué par sa couleur d'accent). On conserve juste un petit interligne.
+                itemHeight = sepItemHeight;
             } else if (idx < separatorLimitIndex) {
                 if (currentY + textLineHeight <= scrollableBottomY) {
                     dc.setColor(_colorTextDim, Graphics.COLOR_TRANSPARENT);
